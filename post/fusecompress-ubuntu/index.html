@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="/css/github.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="/css/layouts/blog.css">
+
+    <title>Using FuseCompress to compress folders in Ubuntu</title>
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <h1 class="brand-title">Srinath's Tech Blog</h1>
+        <h2 class="brand-tagline">Life at the intersection of technology, research, economics & art</h2>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="/post">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="/opensource">Open Source</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+    
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+            
+            <div class="posts">
+                
+                <section class="post">
+                    <header class="post-header">
+                        <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
+
+                        <h2 class="post-title">Using FuseCompress to compress folders in Ubuntu</h2>
+
+                        <p class="post-meta">
+                            By <a href="#" class="post-author">Hariharan Srinath</a> under 
+                            
+                                <a class="post-category" href="#">ubuntu</a>
+                            
+                                <a class="post-category" href="#">fusecompress</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        Many light-weight Notebooks and all Chromebooks today come with balzingly fast but 
+limited capacity Solid State Drives (SSDs) on the theory that people store much of 
+their data in the cloud. However, to use these as Android development machines, 
+you typically do need to store space hogs like sources and library documentation, 
+emulator images etc locally.
+
+Fusecompress is a great little legacy utility that uses the FUSE (File System 
+in User Space) library to provide an on the fly compressed mountable filesystem 
+that in effect lets you compress specific directories in manner completely 
+transparent to all other programs.
+
+I use my HP Chromebook 14 loaded with Ubuntu 14.04 via the ChrUbuntu on a lean 
+9GB partition as my primary development machine. I use fusecompress to compress
+offline documentation for Android and Python and the huge Android Emulator
+system images. This reduces the SSD footprint considerably with barely any impact
+on load times. The Emulator startup does become significantly slower but I need to 
+to do this only once each session.
+
+Installing fusecompress on Ubuntu 14.04
+---------------------------------------
+
+Fusecompress however is not available in the standard Ubuntu repositories and 
+must be compiled from source. Given the legacy nature of the codebase, it's 
+a bit tricky to compile for novices. This blog post outlines the process step-by-step.
+
+
+1. Install Aptitude
+   When I was using apt-get to install the dependency library sources, I found in 
+   a couple of cases the latest development releases of the libraries had 
+   conflicts and I had to regress to the previous version to install them. 
+   Aptitude does a much better job of solving for conflicts
+
+    sudo apt-get install aptitude
+
+2. Install the auto build tools
+   If they're not installed on your system already, you'll need to install 
+   autoconf and automake to be able to build from source.
+
+    sudo aptitude install autoconf automake libtool
+
+3. Install compression algorithms development packages 
+   Next install the development packages for compression algorithms supported 
+   by fusecompress - LZO, LZMA, ZLib & BZ2. I ran into trouble in the LZO package 
+   where I had to revert from the 2.06-1.2ubuntu1.1 version to 2.06-1.2ubuntu1 
+   version. Aptitude gives you a series of menu choices to handle this smoothly 
+   sudo aptitude install zlib1g-dev libbz2-dev liblzma-dev liblzo2-dev
+
+4. Install the FUSE development package
+
+    sudo aptitude install libfuse-dev
+
+5. Download the fusecompress sources
+   You can checkout the fusecompress source from Google Code with SubVersion. 
+   
+    sudo aptitude install subversion
+    svn checkout http://fusecompress.googlecode.com/svn/trunk/ fusecompress-read-only
+
+6. Run the fusecompress build process
+   Change to the folder where you've downloaded the fusecompress sources and
+   run the following commands 
+
+    ./autogen.sh
+    ./configure
+    make
+
+Using fusecompress
+------------------
+
+The least disruptive way I found to use fusecompress is to simply mount the compressed 
+folders exactly where they currently are. The key thing to remember while using 
+fusecompress is that it compress files when they get written to disk. So files that 
+are already in the folder won't automatically get compressed. The way I typically 
+manage this is:
+
+1. Rename the directory you want to compress
+    mv directoryname temporaryname
+
+2. Create an empty directory with the old name
+    mkdir directoryname
+
+3. Fusecompress the directory. The default compression algorithm used is LZO which is
+   very fast. You can also use LZMA as indicated below to get a better compression
+   ratio. You maw want to add this to your ~/.profile to automount on boot.
+    fusecompress directoryname
+    fusecompress -c lzma directoryname
+
+4. Move back all the contents
+    cd temporaryname
+    mv *.* ../directoryname
+
+                    </div>
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li><a href="#">&copy; 2014, Hariharan Srinath</a></li>
+            <li><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/img/ccby.png" /></a></li>
+            <li><a href="http://purecss.io/layouts/blog/">Theme adapted from purecss.io</a></li>
+        </ul>
+    </div>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    </div>
+</div>
+
+</body>
+</html>
