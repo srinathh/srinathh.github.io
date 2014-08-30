@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Lorem on my new hugo site </title>
+      <title>Lorem on Srinath&#39;s Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
     <link>http://localhost:1313/tags/lorem/index.xml</link>
     <language>en-us</language>
     
     
-    <updated>Sat, 23 Aug 2014 09:06:32 UTC</updated>
+    <updated>Tue, 26 Aug 2014 04:47:01 UTC</updated>
     
     <item>
-      <title>fusecompress ubuntu</title>
-      <link>http://localhost:1313/post/fusecompress-ubuntu</link>
-      <pubDate>Sat, 23 Aug 2014 09:06:32 UTC</pubDate>
+      <title>tips</title>
+      <link>http://localhost:1313/blog/tips</link>
+      <pubDate>Tue, 26 Aug 2014 04:47:01 UTC</pubDate>
       
-      <guid>http://localhost:1313/post/fusecompress-ubuntu</guid>
+      <guid>http://localhost:1313/blog/tips</guid>
+      <description>
+
+&lt;h2 id=&#34;toc_0&#34;&gt;Convert a Video to Animated GIF&lt;/h2&gt;
+
+&lt;p&gt;This tip uses mplayer to rescale a movie &amp;amp; save it to GIF starting at the fourth second.
+    mplayer movie.avi -vo gif89a:output=movie.gif -vf scale=600:337 -ss 4&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>opensource/fullscreenwrapper2</title>
+      <link>http://localhost:1313/opensource/fullscreenwrapper</link>
+      <pubDate>Sun, 24 Aug 2014 04:24:12 UTC</pubDate>
+      
+      <guid>http://localhost:1313/opensource/fullscreenwrapper</guid>
       <description></description>
     </item>
     

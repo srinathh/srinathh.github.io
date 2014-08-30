@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-        <link rel="stylesheet" href="/css/github.css">
-    <meta charset="utf-8">
+        <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example that shows off a blog page with a list of posts.">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-    <link rel="stylesheet" href="/css/layouts/blog.css">
+    <meta name="description" content="Living at the intersection of Technology, Research, Economics & Art">
+    <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/grids-responsive-min.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="/css/solarized_light.css">
 
-    <title>my new hugo site</title>
+    <title>Srinath&#39;s Blog</title>
 </head>
 <body>
 
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-md-1-4">
     <div class="header">
-        <h1 class="brand-title">Srinath's Tech Blog</h1>
-        <h2 class="brand-tagline">Life at the intersection of technology, research, economics & art</h2>
+        <a href="/"><h1 class="brand-title">Srinath's Blog</h1></a>
+        <h2 class="brand-tagline">At the intersection of Technology, Insights & Art</h2>
 
         <nav class="nav">
             <ul class="nav-list">
@@ -25,10 +25,10 @@
                     <a class="pure-button" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="pure-button" href="/post">Blog</a>
+                    <a class="pure-button" href="/blog">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="pure-button" href="/opensource">Open Source</a>
+                    <a class="pure-button" href="/opensource">Opensource</a>
                 </li>
             </ul>
         </nav>
@@ -44,7 +44,68 @@
                 <section class="post" >
                     <header class="post-header">
     <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
-    <a href="/post/fusecompress-on-ubuntu"><h2 class="post-title">Using FuseCompress to compress folders in Ubuntu</h2></a>
+    <a href="/blog/tips"><h2 class="post-title">tips</h2></a>
+
+    <p class="post-meta">
+        By <a href="#" class="post-author">Hariharan Srinath</a> 
+        
+            <a class="post-category" href="#">lorem</a>
+        
+            <a class="post-category" href="#">ipsum</a>
+        
+    </p>
+</header>
+
+                    <div class="post-description">
+                        lorem ipsum
+                    </div>
+                </section>
+                
+                
+                <section class="post" >
+                    <header class="post-header">
+    <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
+    <a href="/opensource/fullscreenwrapper"><h2 class="post-title">opensource/fullscreenwrapper2</h2></a>
+
+    <p class="post-meta">
+        By <a href="#" class="post-author">Hariharan Srinath</a> 
+        
+            <a class="post-category" href="#">lorem</a>
+        
+            <a class="post-category" href="#">ipsum</a>
+        
+    </p>
+</header>
+
+                    <div class="post-description">
+                        lorem ipsum
+                    </div>
+                </section>
+                
+                
+                <section class="post" >
+                    <header class="post-header">
+    <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
+    <a href="/opensource/ardgrafix6100"><h2 class="post-title">Fast &amp; Full-featured Arduino driver for Nokia 6100 Color LCDs</h2></a>
+
+    <p class="post-meta">
+        By <a href="#" class="post-author">Hariharan Srinath</a> 
+        
+            <a class="post-category" href="#">Arduino</a>
+        
+    </p>
+</header>
+
+                    <div class="post-description">
+                        ArdGrafix6100 is a fast and full-featured graphics library for interfacing the Nokia 6100 color graphics LCD with Arduino. It uses hardware SPI &amp; block write features to boost graphics performance &amp; supports advanced features like proportional fonts in a tiny RAM footprint.
+                    </div>
+                </section>
+                
+                
+                <section class="post" >
+                    <header class="post-header">
+    <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
+    <a href="/blog/fusecompress-on-ubuntu"><h2 class="post-title">Using FuseCompress to compress folders in Ubuntu</h2></a>
 
     <p class="post-meta">
         By <a href="#" class="post-author">Hariharan Srinath</a> 
@@ -65,7 +126,7 @@
                 <section class="post" >
                     <header class="post-header">
     <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
-    <a href="/post/simplehttpservers"><h2 class="post-title">Hello World Web Servers in Python &amp; Go</h2></a>
+    <a href="/blog/simplehttpservers"><h2 class="post-title">Hello World Web Servers in Python &amp; Go</h2></a>
 
     <p class="post-meta">
         By <a href="#" class="post-author">Hariharan Srinath</a> 
@@ -87,8 +148,9 @@
     <div class="pure-menu pure-menu-horizontal pure-menu-open">
         <ul>
             <li><a href="#">&copy; 2014, Hariharan Srinath</a></li>
-            <li><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="/img/ccby.png" /></a></li>
-            <li><a href="http://purecss.io/layouts/blog/">Theme adapted from purecss.io</a></li>
+            <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Attribution-ShareAlike 4.0 International License" style="border-width:0" src="/img/ccbysa.png" /></a></li>
+            <li><a href="http://purecss.io">Pure CSS</a></li>
+            <li><a href="http://hugo.spf13.com">Hugo</a></li>
         </ul>
     </div>
 </div>
@@ -99,5 +161,8 @@
 </div>
 
 
-</body>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
 </html>
