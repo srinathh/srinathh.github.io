@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Opensources on Srinath&#39;s Blog </title>
+      <title>Gif on Srinath&#39;s Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/opensource/index.xml</link>
+    <link>http://localhost:1313/tags/gif/index.xml</link>
     <language>en-us</language>
     
     
@@ -94,89 +94,6 @@ mplayer -vo jpeg:quality=80 -nosound -ss 6 -endpos 8 vid.mp4
 &lt;p&gt;GoAniGiffy code is licensed under the &lt;a href=&#34;https://github.com/srinathh/goanigiffy/blob/master/LICENSE&#34;&gt;Apache v2.0&lt;/a&gt; license.&lt;/p&gt;
 
 &lt;p&gt;All other media files &amp;amp; documentation in the repository is licened under &lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>FullScreenWrapper2 - a Python GUI Framework for Scripting Layer for Android (SL4A)</title>
-      <link>http://localhost:1313/opensource/fullscreenwrapper</link>
-      <pubDate>Sun, 24 Aug 2014 04:24:12 UTC</pubDate>
-      
-      <guid>http://localhost:1313/opensource/fullscreenwrapper</guid>
-      <description>
-
-&lt;p&gt;FullScreenWapper2 is a GUI Framework for developing full screen apps using the FullScreenUI API functions provided by
-&lt;a href=&#34;https://code.google.com/p/android-scripting/&#34;&gt;Scripting Layer for Android (SL4A)&lt;/a&gt; using &lt;a href=&#34;Shttps://code.google.com/p/python-for-android/&#34;&gt;Python-for-Android&lt;/a&gt;
-It enables Python SL4A scripts to get a look &amp;amp; feel similar to Android Java apps using the same Views used by native
-Java apps XML Layouts and provides pythonic access to events.&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_0&#34;&gt;Features&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Managed eventloop &amp;amp; a layout stack enabling easy parent-&amp;gt;child-&amp;gt;parent transitions&lt;/li&gt;
-&lt;li&gt;EventHandler classes with event-matching functions pre-built for standard View events like click,itemclick(ListView) and key&lt;/li&gt;
-&lt;li&gt;Device Sensors &amp;amp; other similar SL4A/Custom events can also be caught &amp;amp; managed eventloop + EventHandler class&lt;/li&gt;
-&lt;li&gt;Pythonic access to the views and properties of the layout (ie. MainLayout.views.txt_label.background = &amp;ldquo;#FFAA00AA&amp;rdquo;)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;toc_1&#34;&gt;Get it&lt;/h2&gt;
-
-&lt;p&gt;Full documentation &amp;amp; library download is available at the &lt;a href=&#34;https://code.google.com/p/python-for-android/wiki/fullscreenwrapper2&#34;&gt;Python-for-Android Wiki&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_2&#34;&gt;Framework Overview&lt;/h2&gt;
-
-&lt;p&gt;&lt;img alt=&#34;FullScreenWrapper2 framework design&#34; class=&#34;pure-img-responsive&#34; src=&#34;/img/fullscreenwrapper2.png&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_3&#34;&gt;Screenshots&lt;/h2&gt;
-
-&lt;p&gt;&lt;img alt=&#34;FullScreenWrapper2 framework design&#34; class=&#34;pure-img-responsive&#34; src=&#34;/img/fullscreenwrapper2_demo_screenshots.png&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Fast &amp; Full-featured Arduino driver for Nokia 6100 Color LCDs</title>
-      <link>http://localhost:1313/opensource/ardgrafix6100</link>
-      <pubDate>Sun, 24 Aug 2014 04:23:21 UTC</pubDate>
-      
-      <guid>http://localhost:1313/opensource/ardgrafix6100</guid>
-      <description>
-
-&lt;p&gt;ArdGrafix6100 is a fast and full-featured graphics library for interfacing the Nokia 6100 color
-graphics LCD with Arduino. It uses hardware SPI &amp;amp; block write features of the graphics controller
-on the LCD to boost graphics performance &amp;amp; supports advanced features like proportional fonts
-in a tiny RAM footprint. The Philips PF8833 controller is currently supported.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&#34;ArdGrafix6100 Screenshot&#34; class=&#34;pure-img-responsive&#34; src=&#34;/img/ardgrafix6100.jpg&#34; /&gt;
-&lt;img alt=&#34;ArdGrafix6100 Screenshot&#34; class=&#34;pure-img-responsive&#34; src=&#34;/img/ardgrafix6100demo.gif&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_0&#34;&gt;Download&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://code.google.com/p/ardgrafix6100/&#34;&gt;Get the Library&lt;/a&gt; from Google Code&lt;/p&gt;
-
-&lt;h2 id=&#34;toc_1&#34;&gt;Fast&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Uses ATmega SPI peripherals &amp;amp; ports for high - performance graphics&lt;/li&gt;
-&lt;li&gt;Uses block-write features of LCD controller to speed up writes&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;toc_2&#34;&gt;Full Featured&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Supports Proportional Fonts - a 14px height font is included by default!&lt;/li&gt;
-&lt;li&gt;Implements all standard graphic primitives &amp;amp; utility classes like &amp;ldquo;xy&amp;rdquo;, &amp;ldquo;rectangle&amp;rdquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;toc_3&#34;&gt;Practical&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fonts implemented programatically using OOP to conserve SRAM&lt;/li&gt;
-&lt;li&gt;Uses only AVR LIBC functions to ensure easy portability beyond Arduino&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;toc_4&#34;&gt;License&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://www.apache.org/licenses/LICENSE-2.0&#34;&gt;Apache License, Version 2.0&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

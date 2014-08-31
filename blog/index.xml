@@ -7,22 +7,7 @@
     <language>en-us</language>
     
     
-    <updated>Tue, 26 Aug 2014 04:47:01 UTC</updated>
-    
-    <item>
-      <title>tips</title>
-      <link>http://localhost:1313/blog/tips</link>
-      <pubDate>Tue, 26 Aug 2014 04:47:01 UTC</pubDate>
-      
-      <guid>http://localhost:1313/blog/tips</guid>
-      <description>
-
-&lt;h2 id=&#34;toc_0&#34;&gt;Convert a Video to Animated GIF&lt;/h2&gt;
-
-&lt;p&gt;This tip uses mplayer to rescale a movie &amp;amp; save it to GIF starting at the fourth second.
-    mplayer movie.avi -vo gif89a:output=movie.gif -vf scale=600:337 -ss 4&lt;/p&gt;
-</description>
-    </item>
+    <updated>Sat, 23 Aug 2014 09:06:32 UTC</updated>
     
     <item>
       <title>Using FuseCompress to compress folders in Ubuntu</title>

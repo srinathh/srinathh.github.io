@@ -69,8 +69,10 @@
 
 <h2 id="toc_0">Convert a Video to Animated GIF</h2>
 
-<p>This tip uses mplayer to rescale a movie &amp; save it to GIF starting at the fourth second.
-    mplayer movie.avi -vo gif89a:output=movie.gif -vf scale=600:337 -ss 4</p>
+<p>Use mplayer to convert a movie to gif his tip uses mplayer to rescale a movie &amp; save it to GIF starting at the fourth second.</p>
+
+<pre><code>mplayer vid.mp4 -vo gif89a:output=vid.gif -ss 6 -endpos 8
+</code></pre>
 
                     </div>
                 </section>
