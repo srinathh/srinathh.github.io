@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Android on Srinath&#39;s Blog </title>
+      <title>Android on Curiosity &amp; the Geek Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/tags/android/index.xml</link>
+    <link>/tags/android/index.xml</link>
     <language>en-us</language>
     
     
     <updated>Sun, 24 Aug 2014 04:24:12 UTC</updated>
     
     <item>
-      <title>FullScreenWrapper2 - a Python GUI Framework for Scripting Layer for Android (SL4A)</title>
-      <link>http://localhost:1313/opensource/fullscreenwrapper</link>
+      <title>FullScreenWrapper2: Python GUI framework for Android</title>
+      <link>/opensource/fullscreenwrapper</link>
       <pubDate>Sun, 24 Aug 2014 04:24:12 UTC</pubDate>
       
-      <guid>http://localhost:1313/opensource/fullscreenwrapper</guid>
+      <guid>/opensource/fullscreenwrapper</guid>
       <description>
 
 &lt;p&gt;FullScreenWapper2 is a GUI Framework for developing full screen apps using the FullScreenUI API functions provided by

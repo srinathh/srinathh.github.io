@@ -14,7 +14,7 @@ a:focus {
 }
 
 h3 {
-    font-weight: 100;
+    font-weight: bold;
 }
 
 /* LAYOUT CSS */
@@ -95,8 +95,8 @@ h3 {
     border-bottom: 1px solid #eee;
 }
 .post-title {
-    font-size: 2em;
-    color: #222;
+    font-size: 1.7em;
+    color: #444;
     margin-bottom: 0.2em;
 }
 .post-avatar {
@@ -118,8 +118,9 @@ h3 {
     margin: 0 0.1em;
     padding: 0.3em 1em;
     color: #fff;
-    background: #999;
+    background: #4d85d1;
     font-size: 80%;
+    font-weight: bold;
 }
     .post-category-design {
         background: #5aba59;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Video on Srinath&#39;s Blog </title>
+      <title>Video on Curiosity &amp; the Geek </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
     <link>http://localhost:1313/tags/video/index.xml</link>
     <language>en-us</language>
@@ -10,90 +10,142 @@
     <updated>Sat, 30 Aug 2014 05:31:44 UTC</updated>
     
     <item>
-      <title>GoAniGiffy - a simple &amp; versatile animated GIF creator</title>
+      <title>GoAniGiffy: A versatile animated GIF creator</title>
       <link>http://localhost:1313/opensource/goanigiffy</link>
       <pubDate>Sat, 30 Aug 2014 05:31:44 UTC</pubDate>
       
       <guid>http://localhost:1313/opensource/goanigiffy</guid>
       <description>
 
-&lt;p&gt;Animated GIFs have emerged as very convenient ways to post very short movie clips on the web without needing
-any complexities like Flash &amp;amp; are well supported by older browsers as well. A number of free services to convert
-videos to animated GIFs have sprung up on the web but rarely do they allow editing the video itself.&lt;/p&gt;
+&lt;p&gt;Animated GIFs have made a comeback as very convenient ways to post short video clips or slideshows on the web
+without needing Flash, YouTube or Flickr embedding. Their convenience often outweights image quality limitations
+(only 256 colors palette) and poor compression for basic uses.&lt;/p&gt;
 
-&lt;p&gt;GoAniGiffy was born out of the need to convert the demo video of &lt;a href=&#34;/opensource/ardgrafix6100/&#34;&gt;ArdGrafix6100&lt;/a&gt; into
-an animated GIF for hosting on GitHub Pages. The video was originally shot with a phone camera and needed some
-cropping, scaling &amp;amp; rotation to maximize the impact &amp;amp; minimize GIF filesize&lt;/p&gt;
+&lt;p&gt;While a number of free web services have sprung up to convert videos to animated GIFs, they do not typically
+allow editing beyond basic trimming. You &lt;em&gt;could&lt;/em&gt; use a traditional video editor of course but the free ones
+are not exactly intuitive and have limited utility in creating slideshows.&lt;/p&gt;
 
 &lt;h2 id=&#34;toc_0&#34;&gt;GoAniGiffy&lt;/h2&gt;
 
-&lt;p&gt;GoAniGiffy is a small utility written in &lt;a href=&#34;www.golang.org&#34;&gt;Go language&lt;/a&gt; that converts a set of alphabetically sorted
-images (eg. frames extracted from a video with mplayer or VLC) into an animated GIF with the options to
-&lt;strong&gt;crop, scale, rotate &amp;amp; flip&lt;/strong&gt; the source images. It uses the high quality dithering available in the go language
-standard library &amp;amp; in &lt;a href=&#34;www.github.com/disintegration/imaging&#34;&gt;imaging library by Grigory Dryapak&lt;/a&gt; libraries to generate
-a high quality gif image.&lt;/p&gt;
+&lt;p&gt;GoAniGiffy is a small utility written in &lt;a href=&#34;http://www.golang.org&#34;&gt;Go Programming language&lt;/a&gt; that was born out
+of the need to convert my &lt;a href=&#34;https://www.youtube.com/watch?v=esBDMSmbg3E&#34;&gt;demo video&lt;/a&gt; of
+&lt;a href=&#34;/opensource/ardgrafix6100/&#34;&gt;ArdGrafix6100&lt;/a&gt; into an &lt;a href=&#34;/img/ardgrafix6100demo.gif&#34;&gt;animated GIF&lt;/a&gt; for
+hosting on GitHub Pages. This video was originally shot on a phone camera and I wanted to crop it
+to show only the LCD Display with some scaling and rotation. I tried MPlayer first but found it does
+not use good dithering in downsampling the video to 256 colors for GIFs resulting in poor splotchy images.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Get It&lt;/h2&gt;
+&lt;p&gt;GoAniGiffy converts a set of alphabetically sorted image files (eg. video frames extracted as JPEGs)
+into an animated GIF with the options to crop, scale, rotate &amp;amp; flip source images. Downsampling
+and Scaling are done with high quality algorithms from the &lt;code&gt;github.com/disintegration/imaging&lt;/code&gt; library by
+&lt;a href=&#34;https://www.github.com/disintegration/imaging&#34;&gt;Grigory Dryapak&lt;/a&gt; and the &lt;a href=&#34;http://golang.org/pkg/image/draw/#Drawer&#34;&gt;Go Standard Library&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&#34;https://github.com/srinathh/goanigiffy/tree/master/binaries&#34;&gt;Zipped binaries&lt;/a&gt; for Linux &amp;amp; Windows in both 32 bit &amp;amp; 64 bit versions are available&lt;/p&gt;
+&lt;h2 id=&#34;toc_1&#34;&gt;Download&lt;/h2&gt;
 
-&lt;p&gt;If you want to build the Utility from source, make sure you have installed the Go language i
-&lt;a href=&#34;http://golang.org/doc/installa&#34;&gt;installed&lt;/a&gt;installed &amp;amp; :wq
-to build GoAniGiffy&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/srinathh/goanigiffy/tree/master/binaries&#34;&gt;Zipped executable binaries&lt;/a&gt; are available for Linux
+&amp;amp; Windows in both 32 bit &amp;amp; 64 bit flavors. Download the zip appropriate to your OS and extract somewhere in your
+system PATH.  If you want to build from source &lt;code&gt;go get&lt;/code&gt; should fetch the imported libraries &amp;amp; build the utility
+in your $GOPATH/bin.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;Installation&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;go get github.com/srinathh/goanigiffy
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;You should be able to use go get to install GoAniGiffy. This will get the source and create a
-binary built in your $GOPATH/bin folder
-&lt;code&gt;
-go get github.com
-&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;toc_2&#34;&gt;Usage&lt;/h2&gt;
 
-&lt;h2 id=&#34;toc_3&#34;&gt;Usage&lt;/h2&gt;
+&lt;p&gt;GoAniGiffy is a command line utility to be used from the terminal - no GUIs for the present. Use GoAniGiffy with
+a command line of the form below. All parameters are optional and have sane default values.&lt;/p&gt;
 
-&lt;p&gt;GoAniGiffy performs image operations in the order of cropping, scaling, rotating &amp;amp; flipping before
-converting the images into an Animated GIF. Image manipulation is done using &lt;a href=&#34;www.github.com/disintegration/imaging&#34;&gt;Grigory Dryapak&amp;rsquo;s imaging&lt;/a&gt;
-package. We use the Lanczos filter in Resizing and the default Floyd-Steinberg dithering provided by
-Go Language&amp;rsquo;s &lt;a href=&#34;http://golang.org/pkg/image/gif/&#34;&gt;image/gif&lt;/a&gt; package to ensure video quality.
-Arbitrary angle rotations are not supported.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;goanigiffy -src=&amp;quot;&amp;lt;file name pattern&amp;gt;&amp;quot; -&amp;lt;option&amp;gt;=&amp;lt;value&amp;gt; -&amp;lt;option&amp;gt;=&amp;lt;value&amp;gt;... -dest=&amp;quot;&amp;lt;gif file name&amp;gt;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The -delay parameter must be an integer specifying delay between frames in hundredths of a second.
-A value of 3 would give approximately 33 fps theoritically
-&lt;code&gt;
-Usage of goanigiffy:
-  -cropheight=-1: height of cropped image, -1 specified full height
-  -cropleft=0: left co-ordinate for crop to start
-  -croptop=0: top co-ordinate for crop to start
-  -cropwidth=-1: width of cropped image, -1 specifies full width
-  -delay=3: delay time between frame in hundredths of a second
-  -dest=&amp;quot;movie.gif&amp;quot;: a destination filename for the animated gif
-  -flip=&amp;quot;none&amp;quot;: valid falues are none, horizontal, vertical
-  -rotate=0: valid values are 0, 90, 180, 270
-  -scale=1: scaling factor to apply if any
-  -src=&amp;quot;*.jpg&amp;quot;: a glob pattern for source images. defaults to *.jpg
-  -verbose=false: show in-process messages
-&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;toc_3&#34;&gt;Image Options&lt;/h3&gt;
 
-&lt;h2 id=&#34;toc_4&#34;&gt;Example&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-src = &amp;quot;&amp;lt;file name pattern&amp;gt;&amp;quot;&lt;/code&gt;&lt;br /&gt;
+This specifies the input images using a file name pattern. You can use
+standard wildcards or a &lt;a href=&#34;http://golang.org/pkg/path/filepath/#Match&#34;&gt;more complex pattern&lt;/a&gt; supported by
+the &lt;code&gt;path/filepath&lt;/code&gt; package in Go Language. GoAniGiffy will find matching files and sort them
+alphabetically before processing which makes it easy to use GoAniGiffy with numbered image frames extracted
+from videos.  If you do not specfiy &lt;code&gt;-src&lt;/code&gt;, GoAniGiffy will use &lt;code&gt;&amp;quot;*.jpg&amp;quot;&lt;/code&gt; as the file pattern.&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;Here is the command line that builds movie.gif from the images in the sample folder.
-&lt;code&gt;
-goanigiffy -src=&amp;quot;sample/*.jpg&amp;quot; -dest=&amp;quot;sample/movie.gif&amp;quot; -cropleft=100 -croptop=280 -cropwidth=550 -cropheight=351 -scale=0.5 -rotate=270 -verbose
-&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-dest=&amp;quot;&amp;lt;gif file name&amp;gt;&amp;quot;&lt;/code&gt;&lt;br /&gt;
+This specifies the file name and path for the output gif file. If you do not specifiy an
+output file, GoAniGiffy will by default create &amp;ldquo;movie.gif&amp;rdquo; in the current folder.&lt;/p&gt;&lt;/li&gt;
 
-&lt;h2 id=&#34;toc_5&#34;&gt;Tips&lt;/h2&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-delay=&amp;lt;integer value&amp;gt;&lt;/code&gt;&lt;br /&gt;
+This specifies the delay between frames of the image in multiples of hundredths of a second.
+A value of 3 which is the default should theoritically give you 33 frames per second close to the default video speed.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Here is an example of how you can extract frames from a video clip using mplayer. We are extracting
-JPEGs with quality of 80, starting from the 6th second &amp;amp; ending in the 8th second
-&lt;code&gt;
-mplayer -vo jpeg:quality=80 -nosound -ss 6 -endpos 8 vid.mp4
-&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;toc_4&#34;&gt;Cropping Options&lt;/h3&gt;
 
-&lt;h2 id=&#34;toc_6&#34;&gt;License&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-cropleft=&amp;lt;integer value&amp;gt;&lt;/code&gt;&lt;br /&gt;
+If you want to crop the images, specify the left co-ordinate of the top-left corner of the
+rectangle you would like to crop here. The default value is 0&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;GoAniGiffy code is licensed under the &lt;a href=&#34;https://github.com/srinathh/goanigiffy/blob/master/LICENSE&#34;&gt;Apache v2.0&lt;/a&gt; license.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-croptop=&amp;lt;integer value&amp;gt;&lt;/code&gt;&lt;br /&gt;
+If you want to crop the images, specify the top co-ordinate of the top-left corner of the
+rectangle you would like to crop here. The default value is 0&lt;/p&gt;&lt;/li&gt;
 
-&lt;p&gt;All other media files &amp;amp; documentation in the repository is licened under &lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt;.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-cropwidth=&amp;lt;integer value&amp;gt;&lt;/code&gt;&lt;br /&gt;
+If you want to crop the images, specify the width of the rectangle you would like to crop
+here. The default value is -1 which specifies the full image width.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-cropheigh=&amp;lt;integer value&amp;gt;&lt;/code&gt;&lt;br /&gt;
+If you want to crop the images, specify the height of the rectangle you would like to crop
+here. The default value is -1 which specifies the full image height.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;Other Image Editing Options&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-scale=&amp;lt;decimal value&amp;gt;&lt;/code&gt;&lt;br /&gt;
+If you want to scale the images, specify a scaling factor here in terms of decimals. For instance
+to make the animated GIF half the size as source images use -scale=0.5. The default value is 1.0
+which specifies no scaling&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-rotate=&amp;lt;0 or 90 or 180 or 270&amp;gt;&lt;/code&gt;&lt;br /&gt;
+If you want the images to be rotated, specify the rotation angle in degrees here. Arbitrary
+rotations are not supported and you can only use 90, 180 or 270. The default value is 0 which specifies no rotation&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;-flip=&amp;lt;&amp;quot;none&amp;quot; or &amp;quot;horizontal&amp;quot; or &amp;quot;vertical&amp;quot;&amp;gt;&lt;/code&gt;&lt;br /&gt;
+If you want the images to be flipped, specify &amp;ldquo;horizontal&amp;rdquo; or
+&amp;ldquo;vertical&amp;rdquo; here. The default value is &amp;ldquo;none&amp;rdquo; which specifies no flipping&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;toc_6&#34;&gt;Other Options&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-verbose&lt;/code&gt;&lt;br /&gt;
+By default GoAniGiffy will process the files and exit without any messages unless there is an error.
+Specifying -verbose will show in-process messages as the individual frames get processed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;toc_7&#34;&gt;Extracting Frames from Video&lt;/h2&gt;
+
+&lt;p&gt;If you want to convert a video to an animated GIF, you first need to extract frames. I use &lt;a href=&#34;http://www.mplayerhq.hu/&#34;&gt;MPlayer&lt;/a&gt;
+with a command line like below to extract JPEG frames. The &lt;code&gt;-ss 6 -endpos 8&lt;/code&gt; options specify extraction between the 6th and 8th seconds&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mplayer -vo jpeg:quality=80 -nosound -ss 6 -endpos 8 vid.mp4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;toc_8&#34;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;This command line creates a movie.gif from the images in the &lt;a href=&#34;https://github.com/srinathh/goanigiffy/tree/master/sample&#34;&gt;sample folder&lt;/a&gt;
+of the source repository.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;goanigiffy -src=&amp;quot;sample/*.jpg&amp;quot; -dest=&amp;quot;sample/movie.gif&amp;quot; -cropleft=100 -croptop=280 -cropwidth=550 -cropheight=351 -scale=0.5 -rotate=270 -verbose
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The original frames are processed into an animated GIF below showing  only the LCD Panel&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;ArdGrafix6100 Screenshot&#34; class=&#34;pure-img-responsive&#34; src=&#34;/img/00000002.jpg&#34; /&gt;
+&lt;img alt=&#34;ArdGrafix6100 Screenshot&#34; class=&#34;pure-img-responsive&#34; src=&#34;/img/ardgrafix6100demo.gif&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;toc_9&#34;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;GoAniGiffy code is licensed under the &lt;a href=&#34;https://github.com/srinathh/goanigiffy/blob/master/LICENSE&#34;&gt;Apache v2.0&lt;/a&gt; license.
+All other media files &amp;amp; documentation in the repository is licened under &lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-sa/4.0/&#34;&gt;Creative Commons Attribution-ShareAlike 4.0 International License&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
