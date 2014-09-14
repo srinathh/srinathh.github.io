@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2014-09-14T06:10:34+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/blog/android-studio-on-trusty</loc>
+    <loc>http://localhost:1313/blog/android-studio-on-trusty/</loc>
     <lastmod>2014-09-14T06:10:34+05:30</lastmod>
   </url>
   
   <url>
-    <loc>/opensource/goanigiffy</loc>
+    <loc>http://localhost:1313/opensource/goanigiffy/</loc>
     <lastmod>2014-08-31T05:31:44+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/fusecompress-on-ubuntu</loc>
+    <loc>http://localhost:1313/blog/fusecompress-on-ubuntu/</loc>
     <lastmod>2014-08-30T09:06:32+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/opensource/ardgrafix6100</loc>
+    <loc>http://localhost:1313/opensource/ardgrafix6100/</loc>
     <lastmod>2014-08-25T04:23:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/opensource/fullscreenwrapper</loc>
+    <loc>http://localhost:1313/opensource/fullscreenwrapper/</loc>
     <lastmod>2014-08-24T04:24:12+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/simplehttpservers</loc>
+    <loc>http://localhost:1313/blog/simplehttpservers/</loc>
     <lastmod>2014-08-23T05:59:29+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2014-08-01T02:50:25+00:00</lastmod>
   </url>
   

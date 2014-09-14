@@ -3,7 +3,7 @@
   <channel>
       <title>About on Curiosity &amp; the Geek Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>/tags/about/index.xml</link>
+    <link>http://localhost:1313/tags/about/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>About Hariharan Srinath</title>
-      <link>/about</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Fri, 01 Aug 2014 02:50:25 UTC</pubDate>
       
-      <guid>/about</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;I have been driven by curiosity since my childhood and my life took a decidedly geeky turn at the age of eleven
 in early 90s when I taught myself computer programming in the BASIC Language from IBM Personal Computer manuals
 in my father&amp;rsquo;s office. Though I have pursued other avenues in higher education and career, coding has been a

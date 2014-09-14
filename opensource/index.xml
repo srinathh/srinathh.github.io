@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Opensources on Curiosity &amp; the Geek Blog </title>
+      <title>Opensource on Curiosity &amp; the Geek Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>/opensource/index.xml</link>
+    <link>http://localhost:1313/opensource/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>GoAniGiffy: A versatile animated GIF creator</title>
-      <link>/opensource/goanigiffy</link>
+      <link>http://localhost:1313/opensource/goanigiffy/</link>
       <pubDate>Sun, 31 Aug 2014 05:31:44 UTC</pubDate>
       
-      <guid>/opensource/goanigiffy</guid>
+      <guid>http://localhost:1313/opensource/goanigiffy/</guid>
       <description>
 
 &lt;p&gt;Animated GIFs have made a comeback as very convenient ways to post short video clips or slideshows on the web
@@ -151,10 +151,10 @@ All other media files &amp;amp; documentation in the repository is licened under
     
     <item>
       <title>ArdGrafix6100: Fast Arduino driver for Nokia 6100 Color LCDs</title>
-      <link>/opensource/ardgrafix6100</link>
+      <link>http://localhost:1313/opensource/ardgrafix6100/</link>
       <pubDate>Mon, 25 Aug 2014 04:23:21 UTC</pubDate>
       
-      <guid>/opensource/ardgrafix6100</guid>
+      <guid>http://localhost:1313/opensource/ardgrafix6100/</guid>
       <description>
 
 &lt;p&gt;ArdGrafix6100 is a fast and full-featured graphics library for interfacing the Nokia 6100 color
@@ -198,10 +198,10 @@ in a tiny RAM footprint. The Philips PF8833 controller is currently supported.&l
     
     <item>
       <title>FullScreenWrapper2: Python GUI framework for Android</title>
-      <link>/opensource/fullscreenwrapper</link>
+      <link>http://localhost:1313/opensource/fullscreenwrapper/</link>
       <pubDate>Sun, 24 Aug 2014 04:24:12 UTC</pubDate>
       
-      <guid>/opensource/fullscreenwrapper</guid>
+      <guid>http://localhost:1313/opensource/fullscreenwrapper/</guid>
       <description>
 
 &lt;p&gt;FullScreenWapper2 is a GUI Framework for developing full screen apps using the FullScreenUI API functions provided by
