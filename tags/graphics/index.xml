@@ -3,7 +3,7 @@
   <channel>
       <title>Graphics on Curiosity &amp; the Geek Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/tags/graphics/index.xml/</link>
+    <link>/tags/graphics/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>GoAniGiffy: A versatile animated GIF creator</title>
-      <link>http://localhost:1313/opensource/goanigiffy/</link>
+      <link>/opensource/goanigiffy/</link>
       <pubDate>Sun, 31 Aug 2014 05:31:44 UTC</pubDate>
       
-      <guid>http://localhost:1313/opensource/goanigiffy/</guid>
+      <guid>/opensource/goanigiffy/</guid>
       <description>
 
 &lt;p&gt;Animated GIFs have made a comeback as very convenient ways to post short video clips or slideshows on the web

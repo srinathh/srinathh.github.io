@@ -3,18 +3,40 @@
   <channel>
       <title>Recent Content on Curiosity &amp; the Geek Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/index.xml/</link>
+    <link>/index.xml/</link>
     <language>en-us</language>
     
     
-    <updated>Sun, 14 Sep 2014 06:10:34 IST</updated>
+    <updated>Sun, 05 Oct 2014 13:27:02 IST</updated>
+    
+    <item>
+      <title>A color theme based on the Nile</title>
+      <link>/blog/nile-color-theme/</link>
+      <pubDate>Sun, 05 Oct 2014 13:27:02 IST</pubDate>
+      
+      <guid>/blog/nile-color-theme/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://adobe.ly/1xRo7U6&#34; alt=&#34;Click to open in Adobe Kuler&#34;&gt;
+&lt;img alt=&#34;Nile color theme&#34; class=&#34;pure-img-responsive&#34; src=&#34;/img/nile.svg&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A lazy cruise down the &lt;a href=&#34;http://en.wikipedia.org/wiki/Nile&#34;&gt;Nile river&lt;/a&gt; from Aswan to Luxor with
+stops at archeological sites was of the more memorable experiences my wife and I enjoyed in Egypt.
+What struck us most was the unique blend of colors on the Nile riverbank that arises due to the fact
+that in much of Egypt, the civilization is but a thin cultivated strip of green on either side of
+the river in the middle of the desert under the largely cloudless blue sky.  After my wife &amp;amp; I
+recently reminiscenced about our trip, I tried to convert our memories of colors into the color
+theme above.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&#34;Nile riverbank&#34; class=&#34;pure-img-responsive&#34; src=&#34;/img/Nile.jpg&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Making Android Studio (or Eclipse ADT) work on 64-bit Ubuntu Saucy 13.10 or Trusty 14.04</title>
-      <link>http://localhost:1313/blog/android-studio-on-trusty/</link>
+      <link>/blog/android-studio-on-trusty/</link>
       <pubDate>Sun, 14 Sep 2014 06:10:34 IST</pubDate>
       
-      <guid>http://localhost:1313/blog/android-studio-on-trusty/</guid>
+      <guid>/blog/android-studio-on-trusty/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;The Issue&lt;/h2&gt;
@@ -55,10 +77,10 @@ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 zlib1g:i386
     
     <item>
       <title>GoAniGiffy: A versatile animated GIF creator</title>
-      <link>http://localhost:1313/opensource/goanigiffy/</link>
+      <link>/opensource/goanigiffy/</link>
       <pubDate>Sun, 31 Aug 2014 05:31:44 UTC</pubDate>
       
-      <guid>http://localhost:1313/opensource/goanigiffy/</guid>
+      <guid>/opensource/goanigiffy/</guid>
       <description>
 
 &lt;p&gt;Animated GIFs have made a comeback as very convenient ways to post short video clips or slideshows on the web
@@ -195,10 +217,10 @@ All other media files &amp;amp; documentation in the repository is licened under
     
     <item>
       <title>Using FuseCompress to compress folders in Ubuntu</title>
-      <link>http://localhost:1313/blog/fusecompress-on-ubuntu/</link>
+      <link>/blog/fusecompress-on-ubuntu/</link>
       <pubDate>Sat, 30 Aug 2014 09:06:32 UTC</pubDate>
       
-      <guid>http://localhost:1313/blog/fusecompress-on-ubuntu/</guid>
+      <guid>/blog/fusecompress-on-ubuntu/</guid>
       <description>
 
 &lt;h2 id=&#34;toc_0&#34;&gt;Why consider using Fusecompress&lt;/h2&gt;
@@ -320,10 +342,10 @@ mv *.* ../directoryname
     
     <item>
       <title>ArdGrafix6100: Fast Arduino driver for Nokia 6100 Color LCDs</title>
-      <link>http://localhost:1313/opensource/ardgrafix6100/</link>
+      <link>/opensource/ardgrafix6100/</link>
       <pubDate>Mon, 25 Aug 2014 04:23:21 UTC</pubDate>
       
-      <guid>http://localhost:1313/opensource/ardgrafix6100/</guid>
+      <guid>/opensource/ardgrafix6100/</guid>
       <description>
 
 &lt;p&gt;ArdGrafix6100 is a fast and full-featured graphics library for interfacing the Nokia 6100 color
@@ -367,10 +389,10 @@ in a tiny RAM footprint. The Philips PF8833 controller is currently supported.&l
     
     <item>
       <title>FullScreenWrapper2: Python GUI framework for Android</title>
-      <link>http://localhost:1313/opensource/fullscreenwrapper/</link>
+      <link>/opensource/fullscreenwrapper/</link>
       <pubDate>Sun, 24 Aug 2014 04:24:12 UTC</pubDate>
       
-      <guid>http://localhost:1313/opensource/fullscreenwrapper/</guid>
+      <guid>/opensource/fullscreenwrapper/</guid>
       <description>
 
 &lt;p&gt;FullScreenWapper2 is a GUI Framework for developing full screen apps using the FullScreenUI API functions provided by
@@ -403,10 +425,10 @@ Java apps XML Layouts and provides pythonic access to events.&lt;/p&gt;
     
     <item>
       <title>Hello World Web Servers in Python &amp; Go</title>
-      <link>http://localhost:1313/blog/simplehttpservers/</link>
+      <link>/blog/simplehttpservers/</link>
       <pubDate>Sat, 23 Aug 2014 05:59:29 UTC</pubDate>
       
-      <guid>http://localhost:1313/blog/simplehttpservers/</guid>
+      <guid>/blog/simplehttpservers/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Note: This is a simple post primarily written to learn markdown&lt;/strong&gt;&lt;/p&gt;
@@ -501,10 +523,10 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     
     <item>
       <title>About Hariharan Srinath</title>
-      <link>http://localhost:1313/about/</link>
+      <link>/about/</link>
       <pubDate>Fri, 01 Aug 2014 02:50:25 UTC</pubDate>
       
-      <guid>http://localhost:1313/about/</guid>
+      <guid>/about/</guid>
       <description>&lt;p&gt;I have been driven by curiosity since my childhood and my life took a decidedly geeky turn at the age of eleven
 in early 90s when I taught myself computer programming in the BASIC Language from IBM Personal Computer manuals
 in my father&amp;rsquo;s office. Though I have pursued other avenues in higher education and career, coding has been a

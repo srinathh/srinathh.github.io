@@ -3,7 +3,7 @@
   <channel>
       <title>Golang on Curiosity &amp; the Geek Blog </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>http://localhost:1313/tags/golang/index.xml/</link>
+    <link>/tags/golang/index.xml/</link>
     <language>en-us</language>
     
     
@@ -11,10 +11,10 @@
     
     <item>
       <title>GoAniGiffy: A versatile animated GIF creator</title>
-      <link>http://localhost:1313/opensource/goanigiffy/</link>
+      <link>/opensource/goanigiffy/</link>
       <pubDate>Sun, 31 Aug 2014 05:31:44 UTC</pubDate>
       
-      <guid>http://localhost:1313/opensource/goanigiffy/</guid>
+      <guid>/opensource/goanigiffy/</guid>
       <description>
 
 &lt;p&gt;Animated GIFs have made a comeback as very convenient ways to post short video clips or slideshows on the web
@@ -151,10 +151,10 @@ All other media files &amp;amp; documentation in the repository is licened under
     
     <item>
       <title>Hello World Web Servers in Python &amp; Go</title>
-      <link>http://localhost:1313/blog/simplehttpservers/</link>
+      <link>/blog/simplehttpservers/</link>
       <pubDate>Sat, 23 Aug 2014 05:59:29 UTC</pubDate>
       
-      <guid>http://localhost:1313/blog/simplehttpservers/</guid>
+      <guid>/blog/simplehttpservers/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Note: This is a simple post primarily written to learn markdown&lt;/strong&gt;&lt;/p&gt;
