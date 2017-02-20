@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Trusty on Curiosity &amp; the Geek Blog </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>/tags/trusty/index.xml/</link>
+    <title>Curiosity &amp; the Geek Blog</title>
+    <link>/tags/trusty/index.xml</link>
+    <description>Recent content on Curiosity &amp; the Geek Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Sun, 14 Sep 2014 06:10:34 IST</updated>
+    <atom:link href="/tags/trusty/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Making Android Studio (or Eclipse ADT) work on 64-bit Ubuntu Saucy 13.10 or Trusty 14.04</title>
       <link>/blog/android-studio-on-trusty/</link>
-      <pubDate>Sun, 14 Sep 2014 06:10:34 IST</pubDate>
+      <pubDate>Sun, 14 Sep 2014 06:10:34 +0530</pubDate>
       
       <guid>/blog/android-studio-on-trusty/</guid>
       <description>
 
-&lt;h2 id=&#34;toc_0&#34;&gt;The Issue&lt;/h2&gt;
+&lt;h2 id=&#34;the-issue&#34;&gt;The Issue&lt;/h2&gt;
 
 &lt;p&gt;Getting Android Studio (or Eclipse Android Development Tools) to run successfully on 64-bit (ie. amd64)
 installations of the newer Ubuntu (or underlying Debian) distributions like Trusty Thar (14.04)
 is not a very straightforward process. While the IDE you download itself will work assuming you have JDK
 installed, it will throw a bunch of build errors when you try to build any app.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Why does this happen&lt;/h2&gt;
+&lt;h2 id=&#34;why-does-this-happen&#34;&gt;Why does this happen&lt;/h2&gt;
 
 &lt;p&gt;The build errors happen because the Android &lt;code&gt;build-tools&lt;/code&gt; are actually 32-bit (ie. i386) binaries dynamically linked
 to several 32-bit libraries. For instance, this is what the the &lt;code&gt;file&lt;/code&gt; outputs on my installation
@@ -40,7 +39,7 @@ onwards have &lt;a href=&#34;http://askubuntu.com/questions/359156/how-do-you-ru
 the &lt;code&gt;ia32-libs&lt;/code&gt; package and rely fully on &lt;a href=&#34;https://wiki.debian.org/Multiarch&#34;&gt;Multiarch&lt;/a&gt; which is a
 much more comprehensive solution.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;The Solution&lt;/h2&gt;
+&lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
 
 &lt;p&gt;To get Android Studio (or Eclipse ADT) build properly on the newer 64 bit Ubuntu releases like 13.10
 Saucy or 14.04 Trusty you need to add the 32-bit i386 library dependencies as follows:&lt;/p&gt;

@@ -19,7 +19,7 @@
 
 </script>
 
-    <title>Ia32 Libs</title>
+    <title>Hook</title>
 </head>
 <body>
 
@@ -53,7 +53,7 @@
     
 
     <div class="content pure-u-1 pure-u-md-3-4">
-        <div class="content-subhead">Ia32 Libs</div>
+        <div class="content-subhead">Hook</div>
             
 
             <div class="posts">
@@ -62,30 +62,24 @@
                 <section class="post" >
                     <header class="post-header">
     <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
-    <a href="/blog/android-studio-on-trusty/"><h2 class="post-title">Making Android Studio (or Eclipse ADT) work on 64-bit Ubuntu Saucy 13.10 or Trusty 14.04</h2></a>
+    <a href="/blog/hooking-into-android-gradle-build/"><h2 class="post-title">Hooking into Android Studio&#39;s Gradle build process</h2></a>
 
     <p class="post-meta">
         By Hariharan Srinath 
         
             <a class="post-category" href="/tags/android-studio">android studio</a>
         
-            <a class="post-category" href="/tags/adt">adt</a>
+            <a class="post-category" href="/tags/gradle">gradle</a>
         
-            <a class="post-category" href="/tags/ubuntu">ubuntu</a>
+            <a class="post-category" href="/tags/hook">hook</a>
         
-            <a class="post-category" href="/tags/trusty">trusty</a>
-        
-            <a class="post-category" href="/tags/saucy">saucy</a>
-        
-            <a class="post-category" href="/tags/multiarch">multiarch</a>
-        
-            <a class="post-category" href="/tags/ia32-libs">ia32-libs</a>
+            <a class="post-category" href="/tags/assets">assets</a>
         
     </p>
 </header>
 
                     <div class="post-description">
-                        Getting Android Studio (or Eclipse Android Development Tools) to run successfully on 64-bit (ie. amd64) installations of the newer Ubuntu (or underlying Debian) distributions like Trusty Thar (14.04) is not straightforward. As Android build-tools are actually 32-bit programs linked to 32-bit libraries that are not installed by default, build often fails on first installation. Unfortunately, most advise that shows up on a Google search is outdated and recommends installing the ia32-libs package which is no longer supported from Ubuntu 13.10 Saucy onwards. This article shows you how to use multiarch support to install the necessary 32-bit libraries to make Anrdoid builds work on an amd64 installation of newer versions Ubuntu.
+                        This post shows how to hook into an Android Studio&#39;s gradle build process to automatically run your own external commands like compiling assets, building JS webapps etc. before compiling the Android app.
                     </div>
                 </section>
                 

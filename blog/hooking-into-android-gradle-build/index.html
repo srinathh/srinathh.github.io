@@ -19,7 +19,7 @@
 
 </script>
 
-    <title>FullScreenWrapper2: Python GUI framework for Android</title>
+    <title>Hooking into Android Studio&#39;s Gradle build process</title>
 </head>
 <body>
 
@@ -58,18 +58,18 @@
                 <section class="post">
                     <header class="post-header">
     <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
-    <a href="/opensource/fullscreenwrapper/"><h2 class="post-title">FullScreenWrapper2: Python GUI framework for Android</h2></a>
+    <a href="/blog/hooking-into-android-gradle-build/"><h2 class="post-title">Hooking into Android Studio&#39;s Gradle build process</h2></a>
 
     <p class="post-meta">
         By Hariharan Srinath 
         
-            <a class="post-category" href="/tags/python">python</a>
+            <a class="post-category" href="/tags/android-studio">android studio</a>
         
-            <a class="post-category" href="/tags/android">android</a>
+            <a class="post-category" href="/tags/gradle">gradle</a>
         
-            <a class="post-category" href="/tags/sl4a">sl4a</a>
+            <a class="post-category" href="/tags/hook">hook</a>
         
-            <a class="post-category" href="/tags/opensource">opensource</a>
+            <a class="post-category" href="/tags/assets">assets</a>
         
     </p>
 </header>
@@ -85,31 +85,59 @@
                     <div class="post-description">
                         
 
-<p>FullScreenWapper2 is a GUI Framework for developing full screen apps using the FullScreenUI API functions provided by
-<a href="https://code.google.com/p/android-scripting/">Scripting Layer for Android (SL4A)</a> using <a href="Shttps://code.google.com/p/python-for-android/">Python-for-Android</a>
-It enables Python SL4A scripts to get a look &amp; feel similar to Android Java apps using the same Views used by native
-Java apps XML Layouts and provides pythonic access to events.</p>
+<h2 id="background">Background</h2>
 
-<h2 id="features">Features</h2>
+<p>If you want to automate steps to re-build data-files or assets for an Android app every time
+the app gets built in Android Studio, you need to hook into the Gradle based build process.
+While Gradle itself has <a href="https://docs.gradle.org/current/userguide/userguide.html">impressive documentation</a>,
+it was not very clear initially how to hook into an Android app&rsquo;s build process. This article shows how I
+managed to make it work.</p>
 
-<ul>
-<li>Managed eventloop &amp; a layout stack enabling easy parent-&gt;child-&gt;parent transitions</li>
-<li>EventHandler classes with event-matching functions pre-built for standard View events like click,itemclick(ListView) and key</li>
-<li>Device Sensors &amp; other similar SL4A/Custom events can also be caught &amp; managed eventloop + EventHandler class</li>
-<li>Pythonic access to the views and properties of the layout (ie. MainLayout.views.txt_label.background = &ldquo;#FFAA00AA&rdquo;)</li>
-</ul>
+<h2 id="issue">Issue</h2>
 
-<h2 id="get-it">Get it</h2>
+<p>I want to make an Android app which uses a <a href="https://developer.android.com/guide/webapps/webview.html">WebView</a>
+to display a webapp built on <a href="https://facebook.github.io/react/">React Framework</a>. <a href="https://github.com/facebookincubator/create-react-app">Create React App</a>
+is a simple way to bootstrap a react app using <a href="https://webpack.github.io/">WebPack</a> and
+<a href="https://babeljs.io/">BabelJS</a> to translate JSX to plain JS and bundle the code. The
+Create React App scripts provides a simple live-rebuild and webserver feature for local development
+and makes an <code>npm run build</code> command available to generate an optimized build.</p>
 
-<p>Full documentation &amp; library download is available at the <a href="https://code.google.com/p/python-for-android/wiki/fullscreenwrapper2">Python-for-Android Wiki</a></p>
+<p>Rather than host this webapp on a server, I would like to make it available locally under the <code>assets</code>
+folder in the Android app to minimize latency. I would also like the webapp automatically rebuilt
+everytime I compile the android app and refreshed in the <code>assets</code> folder.</p>
 
-<h2 id="framework-overview">Framework Overview</h2>
+<h2 id="solution">Solution</h2>
 
-<p><img alt="FullScreenWrapper2 framework design" class="pure-img-responsive" src="/img/fullscreenwrapper2.png" /></p>
+<p>The <a href="http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Android-tasks">Android Gradle Plugin</a>
+unfortunately uses fancy features of the Gradle DSL to build a task based on build target configurations
+at runtime making it difficult to hook onto one of the <code>:assemble</code> or <code>:build</code> tasks while compiling.</p>
 
-<h2 id="screenshots">Screenshots</h2>
+<p>However, one of the early tasks that runs during Android App compilation with Gradle is
+called <code>:preBuild</code> and allows us to reliably hook into it for running or own asset generation
+routines.</p>
 
-<p><img alt="FullScreenWrapper2 framework design" class="pure-img-responsive" src="/img/fullscreenwrapper2_demo_screenshots.png" /></p>
+<p>To do this, I appended the following at the bottom of <code>build.gradle</code> of the android application.
+I first create a Gradle <a href="https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html">Exec</a>
+task which runs the <code>npm run build</code> command in the directory containing the webapp sources. I then
+create a Gradle <a href="https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Sync.html">Sync</a> that copies
+the generated webapp files to the <code>assets</code> folder. The <code>Sync</code> task depends on the <code>Exec</code> task. Finally
+I make the Android build&rsquo;s <code>:preBuild</code> task depend on our <code>Sync</code> task so that the assets are build
+and copied before the Android app is compiled.</p>
+
+<pre><code>task buildWebApp(type:Exec) {
+    workingDir '../../webapp'
+    //on linux
+    commandLine 'npm', 'run', 'build'
+}
+
+task syncWebApp(type: Sync, dependsOn:'buildWebApp') {
+    from '../../webapp/build'
+    into 'src/main/assets/build'
+    println 'in syncWebApp'
+}
+
+preBuild.dependsOn(syncWebApp)
+</code></pre>
 
                     </div>
                 </section>

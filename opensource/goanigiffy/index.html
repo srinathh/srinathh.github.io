@@ -93,7 +93,7 @@ without needing Flash, YouTube or Flickr embedding. Their convenience often outw
 allow editing beyond basic trimming. You <em>could</em> use a traditional video editor of course but the free ones
 are not exactly intuitive and have limited utility in creating slideshows.</p>
 
-<h2 id="toc_0">GoAniGiffy</h2>
+<h2 id="goanigiffy">GoAniGiffy</h2>
 
 <p>GoAniGiffy is a small utility written in <a href="http://www.golang.org">Go Programming language</a> that was born out
 of the need to convert my <a href="https://www.youtube.com/watch?v=esBDMSmbg3E">demo video</a> of
@@ -107,7 +107,7 @@ into an animated GIF with the options to crop, scale, rotate &amp; flip source i
 and Scaling are done with high quality algorithms from the <code>github.com/disintegration/imaging</code> library by
 <a href="https://www.github.com/disintegration/imaging">Grigory Dryapak</a> and the <a href="http://golang.org/pkg/image/draw/#Drawer">Go Standard Library</a></p>
 
-<h2 id="toc_1">Download</h2>
+<h2 id="download">Download</h2>
 
 <p><a href="https://github.com/srinathh/goanigiffy/tree/master/binaries">Zipped executable binaries</a> are available for Linux
 &amp; Windows in both 32 bit &amp; 64 bit flavors. Download the zip appropriate to your OS and extract somewhere in your
@@ -117,7 +117,7 @@ in your $GOPATH/bin.</p>
 <pre><code>go get github.com/srinathh/goanigiffy
 </code></pre>
 
-<h2 id="toc_2">Usage</h2>
+<h2 id="usage">Usage</h2>
 
 <p>GoAniGiffy is a command line utility to be used from the terminal - no GUIs for the present. Use GoAniGiffy with
 a command line of the form below. All parameters are optional and have sane default values.</p>
@@ -125,7 +125,7 @@ a command line of the form below. All parameters are optional and have sane defa
 <pre><code>goanigiffy -src=&quot;&lt;file name pattern&gt;&quot; -&lt;option&gt;=&lt;value&gt; -&lt;option&gt;=&lt;value&gt;... -dest=&quot;&lt;gif file name&gt;&quot;
 </code></pre>
 
-<h3 id="toc_3">Image Options</h3>
+<h3 id="image-options">Image Options</h3>
 
 <ul>
 <li><p><code>-src = &quot;&lt;file name pattern&gt;&quot;</code><br />
@@ -144,7 +144,7 @@ This specifies the delay between frames of the image in multiples of hundredths 
 A value of 3 which is the default should theoritically give you 33 frames per second close to the default video speed.</p></li>
 </ul>
 
-<h3 id="toc_4">Cropping Options</h3>
+<h3 id="cropping-options">Cropping Options</h3>
 
 <ul>
 <li><p><code>-cropleft=&lt;integer value&gt;</code><br />
@@ -164,7 +164,7 @@ If you want to crop the images, specify the height of the rectangle you would li
 here. The default value is -1 which specifies the full image height.</p></li>
 </ul>
 
-<h3 id="toc_5">Other Image Editing Options</h3>
+<h3 id="other-image-editing-options">Other Image Editing Options</h3>
 
 <ul>
 <li><p><code>-scale=&lt;decimal value&gt;</code><br />
@@ -181,7 +181,7 @@ If you want the images to be flipped, specify &ldquo;horizontal&rdquo; or
 &ldquo;vertical&rdquo; here. The default value is &ldquo;none&rdquo; which specifies no flipping</p></li>
 </ul>
 
-<h3 id="toc_6">Other Options</h3>
+<h3 id="other-options">Other Options</h3>
 
 <ul>
 <li><code>-verbose</code><br />
@@ -189,7 +189,7 @@ By default GoAniGiffy will process the files and exit without any messages unles
 Specifying -verbose will show in-process messages as the individual frames get processed</li>
 </ul>
 
-<h2 id="toc_7">Extracting Frames from Video</h2>
+<h2 id="extracting-frames-from-video">Extracting Frames from Video</h2>
 
 <p>If you want to convert a video to an animated GIF, you first need to extract frames. I use <a href="http://www.mplayerhq.hu/">MPlayer</a>
 with a command line like below to extract JPEG frames. The <code>-ss 6 -endpos 8</code> options specify extraction between the 6th and 8th seconds</p>
@@ -197,7 +197,7 @@ with a command line like below to extract JPEG frames. The <code>-ss 6 -endpos 8
 <pre><code>mplayer -vo jpeg:quality=80 -nosound -ss 6 -endpos 8 vid.mp4
 </code></pre>
 
-<h2 id="toc_8">Example</h2>
+<h2 id="example">Example</h2>
 
 <p>This command line creates a movie.gif from the images in the <a href="https://github.com/srinathh/goanigiffy/tree/master/sample">sample folder</a>
 of the source repository.</p>
@@ -210,7 +210,7 @@ of the source repository.</p>
 <p><img alt="ArdGrafix6100 Screenshot" class="pure-img-responsive" src="/img/00000002.jpg" />
 <img alt="ArdGrafix6100 Screenshot" class="pure-img-responsive" src="/img/ardgrafix6100demo.gif" /></p>
 
-<h2 id="toc_9">License</h2>
+<h2 id="license">License</h2>
 
 <p>GoAniGiffy code is licensed under the <a href="https://github.com/srinathh/goanigiffy/blob/master/LICENSE">Apache v2.0</a> license.
 All other media files &amp; documentation in the repository is licened under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>

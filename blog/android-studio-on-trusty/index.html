@@ -91,14 +91,14 @@
                     <div class="post-description">
                         
 
-<h2 id="toc_0">The Issue</h2>
+<h2 id="the-issue">The Issue</h2>
 
 <p>Getting Android Studio (or Eclipse Android Development Tools) to run successfully on 64-bit (ie. amd64)
 installations of the newer Ubuntu (or underlying Debian) distributions like Trusty Thar (14.04)
 is not a very straightforward process. While the IDE you download itself will work assuming you have JDK
 installed, it will throw a bunch of build errors when you try to build any app.</p>
 
-<h2 id="toc_1">Why does this happen</h2>
+<h2 id="why-does-this-happen">Why does this happen</h2>
 
 <p>The build errors happen because the Android <code>build-tools</code> are actually 32-bit (ie. i386) binaries dynamically linked
 to several 32-bit libraries. For instance, this is what the the <code>file</code> outputs on my installation
@@ -114,7 +114,7 @@ onwards have <a href="http://askubuntu.com/questions/359156/how-do-you-run-a-32-
 the <code>ia32-libs</code> package and rely fully on <a href="https://wiki.debian.org/Multiarch">Multiarch</a> which is a
 much more comprehensive solution.</p>
 
-<h2 id="toc_2">The Solution</h2>
+<h2 id="the-solution">The Solution</h2>
 
 <p>To get Android Studio (or Eclipse ADT) build properly on the newer 64 bit Ubuntu releases like 13.10
 Saucy or 14.04 Trusty you need to add the 32-bit i386 library dependencies as follows:</p>

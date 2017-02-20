@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Egypt on Curiosity &amp; the Geek Blog </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>/tags/egypt/index.xml/</link>
+    <title>Curiosity &amp; the Geek Blog</title>
+    <link>/tags/egypt/index.xml</link>
+    <description>Recent content on Curiosity &amp; the Geek Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Sun, 05 Oct 2014 13:27:02 IST</updated>
+    <atom:link href="/tags/egypt/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>A color theme based on the Nile</title>
       <link>/blog/nile-color-theme/</link>
-      <pubDate>Sun, 05 Oct 2014 13:27:02 IST</pubDate>
+      <pubDate>Sun, 05 Oct 2014 13:27:02 +0530</pubDate>
       
       <guid>/blog/nile-color-theme/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;http://adobe.ly/1xRo7U6&#34; alt=&#34;Click to open in Adobe Kuler&#34;&gt;

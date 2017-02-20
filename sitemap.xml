@@ -3,8 +3,12 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2014-10-05T13:27:02+05:30</lastmod>
-    <priority>0</priority>
+    <lastmod>2016-02-21T01:29:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/hooking-into-android-gradle-build/</loc>
+    <lastmod>2016-02-21T01:29:00+05:30</lastmod>
   </url>
   
   <url>
