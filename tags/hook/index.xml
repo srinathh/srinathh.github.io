@@ -57,14 +57,12 @@ and copied before the Android app is compiled.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;task buildWebApp(type:Exec) {
     workingDir &#39;../../webapp&#39;
-    //on linux
     commandLine &#39;npm&#39;, &#39;run&#39;, &#39;build&#39;
 }
 
 task syncWebApp(type: Sync, dependsOn:&#39;buildWebApp&#39;) {
     from &#39;../../webapp/build&#39;
     into &#39;src/main/assets/build&#39;
-    println &#39;in syncWebApp&#39;
 }
 
 preBuild.dependsOn(syncWebApp)
