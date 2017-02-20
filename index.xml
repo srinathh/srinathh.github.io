@@ -348,6 +348,12 @@ In today&amp;rsquo;s world of distributed version control systems like Git &amp;
 using SubVersion may seem quaint but that&amp;rsquo;s the cost of using a stable legacy
 package like FuseCompress.&lt;/p&gt;
 
+&lt;p&gt;&lt;span style=&#34;color:red&#34;&gt;&lt;strong&gt;Important Update:&lt;/strong&gt;&lt;/span&gt;
+Google Code has shut down since this article was published and version of
+FuseCompress this post depends on was exported to Github. You need to use Git
+and the &lt;a href=&#34;https://github.com/hexxellor/fusecompress&#34;&gt;Github repository&lt;/a&gt; instead.
+Thanks to &lt;strong&gt;Matt C&lt;/strong&gt; in the comments.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;sudo aptitude install subversion
 svn checkout http://fusecompress.googlecode.com/svn/trunk/ fusecompress-read-only
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
