@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Curiosity &amp; the Geek Blog</title>
+    <link>/tags/embedded-types/index.xml</link>
+    <description>Recent content on Curiosity &amp; the Geek Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/tags/embedded-types/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How type embedding intersects with Pointer and Value method receivers in Go</title>
+      <link>/blog/golang-embedding-subtlety/</link>
+      <pubDate>Sat, 25 Feb 2017 23:47:00 +0530</pubDate>
+      
+      <guid>/blog/golang-embedding-subtlety/</guid>
+      <description>&lt;p&gt;I recently encountered a subtlety in Go language in how methods exposed by
+an embedded type are resolved vs. those with the same name defined by the
+container types depending on whether they are defined on
+&lt;a href=&#34;https://golang.org/doc/effective_go.html#pointers_vs_values&#34;&gt;Pointer or Value&lt;/a&gt; receivers.
+A quick trip to the language documentation however helped me understand subtlety and fix
+the unexpected result I was getting. It left me with a greater appreciation for how different
+features of the Go Language are designed to interact in cleanly defined manners.&lt;/p&gt;
+
+&lt;p&gt;Specifically, I wanted to embed &lt;a href=&#34;https://golang.org/pkg/time/#Time&#34;&gt;time.Time&lt;/a&gt; into a
+type called &lt;code&gt;ISODate&lt;/code&gt; which would have a &lt;a href=&#34;https://golang.org/pkg/encoding/json/#Marshaler&#34;&gt;json.Marshaler&lt;/a&gt;
+and &lt;a href=&#34;https://golang.org/pkg/encoding/json/#Unmarshaler&#34;&gt;json.Unmarshaler&lt;/a&gt; defined to handle
+dates specified in the format &lt;code&gt;2016-01-02&lt;/code&gt;. As a convenience, I wanted to implement
+the &lt;a href=&#34;https://golang.org/pkg/fmt/#Stringer&#34;&gt;Stringer&lt;/a&gt; interface on &lt;code&gt;ISODate&lt;/code&gt; to return
+dates in the same format, over-riding how &lt;a href=&#34;https://golang.org/pkg/time/#Time.String&#34;&gt;time.Time&lt;/a&gt;
+handles it. The code snippet below shows the &lt;code&gt;Stringer&lt;/code&gt; portion.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type ISODate struct {
+	time.Time
+}
+
+func (t *ISODate) String() string {
+	return t.Format(&amp;quot;2006-01-02&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;By of force of habit I had defined the &lt;code&gt;Stringer&lt;/code&gt; with a pointer receiver. However, when I
+tried to use the &lt;code&gt;String()&lt;/code&gt; method above, I saw the &lt;a href=&#34;https://golang.org/pkg/time/#Time.String&#34;&gt;time.Time.String&lt;/a&gt;
+formatting of &lt;code&gt;2006-01-02 15:04:05.999999999 -0700 MST&lt;/code&gt; fomat instead of the &lt;code&gt;2006-01-02&lt;/code&gt;
+fomrat that I wanted. Digging into the problem a bit, I found that calling &lt;code&gt;String()&lt;/code&gt; on
+&lt;code&gt;&amp;amp;ISODate&lt;/code&gt; produced the correct formatting. Clearly I was missing something in my understanding
+of Pointer and Value receivers for methods.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import (
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;time&amp;quot;
+)
+
+type ISODate struct {
+	time.Time
+}
+
+func (t *ISODate) String() string {
+	return t.Format(&amp;quot;2006-01-02&amp;quot;)
+}
+
+func main() {
+	t := ISODate{time.Date(2006, 1, 2, 3, 4, 5, 7, time.UTC)}
+	fmt.Println(t)
+	fmt.Println(&amp;amp;t)
+}
+
+Output:
+{2006-01-02 03:04:05.000000007 +0000 UTC}
+2006-01-02
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Two of the real gems in the Go language documentation are the &lt;a href=&#34;https://golang.org/ref/spec&#34;&gt;Language Specification&lt;/a&gt;
+which is remarkably compact and readable for a technical document and the &lt;a href=&#34;https://golang.org/doc/effective_go.html&#34;&gt;Effective Go&lt;/a&gt;
+article which contains somewhat friendlier explanations of the concepts.&lt;/p&gt;
+
+&lt;p&gt;Sure enought, in Effective Go&amp;rsquo;s section on &lt;a href=&#34;https://golang.org/doc/effective_go.html#pointers_vs_values&#34;&gt;Pointer vs Value receivers&lt;/a&gt;,
+I found the following explanation:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The rule about pointers vs. values for receivers is that value methods can be invoked on
+pointers and values, but pointer methods can only be invoked on pointers.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I had defined my &lt;code&gt;ISODate.String()&lt;/code&gt; method with a pointer receiver in the code above and so clearly the
+second &lt;code&gt;fmt.Println(&amp;amp;t)&lt;/code&gt; called it as expected. However, where did the first &lt;code&gt;fmt.Println(t)&lt;/code&gt; output
+come from?&lt;/p&gt;
+
+&lt;p&gt;Looking at the code for &lt;a href=&#34;https://golang.org/src/time/format.go?s=13317:13346#L417&#34;&gt;time.Time.String()&lt;/a&gt;
+we see that the &lt;code&gt;String()&lt;/code&gt; function is defined on a value receiver. Since &lt;code&gt;time.Time&lt;/code&gt; is embedded
+in &lt;code&gt;ISODate&lt;/code&gt; and its methods are therefore promoted, it turns out that &lt;code&gt;ISODate&lt;/code&gt; in this case
+had two &lt;code&gt;String()&lt;/code&gt; methods - one with a pointer receiver and the other with a value receiver.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// String returns the time formatted using the format string
+//	&amp;quot;2006-01-02 15:04:05.999999999 -0700 MST&amp;quot;
+func (t Time) String() string {
+    return t.Format(&amp;quot;2006-01-02 15:04:05.999999999 -0700 MST&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The fix was simply to define the &lt;code&gt;String()&lt;/code&gt; method on a value receiver
+so that the underlying &lt;code&gt;String()&lt;/code&gt; of the &lt;code&gt;time.Time&lt;/code&gt; could be overridden.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;package main
+
+import (
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;time&amp;quot;
+)
+
+type ISODate struct {
+	time.Time
+}
+
+func (t ISODate) String() string {
+	return t.Format(&amp;quot;2006-01-02&amp;quot;)
+}
+
+func main() {
+	t := ISODate{time.Date(2006, 1, 2, 3, 4, 5, 7, time.UTC)}
+	fmt.Println(t)
+	fmt.Println(&amp;amp;t)
+}
+
+Output:
+2006-01-02
+2006-01-02
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
