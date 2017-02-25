@@ -3,7 +3,12 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2016-02-21T01:29:00+05:30</lastmod>
+    <lastmod>2017-02-25T23:47:00+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/golang-embedding-subtlety/</loc>
+    <lastmod>2017-02-25T23:47:00+05:30</lastmod>
   </url>
   
   <url>
