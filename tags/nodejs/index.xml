@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Curiosity &amp; the Geek Blog</title>
+    <link>/tags/nodejs/index.xml</link>
+    <description>Recent content on Curiosity &amp; the Geek Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Building Modular and Flexible React Container Components</title>
+      <link>/blog/modular-flexible-react-container-components/</link>
+      <pubDate>Sat, 25 Mar 2017 01:43:10 +0530</pubDate>
+      
+      <guid>/blog/modular-flexible-react-container-components/</guid>
+      <description>
+
+&lt;p&gt;This article shows you how to correctly build
+&lt;a href=&#34;https://facebook.github.io/react/&#34;&gt;React&lt;/a&gt; components,
+especially container components in a modular and flexible way
+such that they can be used with customization across apps
+and use cases without having to modify the component code.&lt;/p&gt;
+
+&lt;p&gt;While React makes it very simple to create composable
+components, providing flexibility for varying use cases by
+apps consuming the components requires care in consuming only
+properties explicitly supported and passing on the remaining
+ones to the underlying DOM elements. In this article, we will
+explore best practices integrated from multiple sources to
+achieve this goal.&lt;/p&gt;
+
+&lt;p&gt;All code for this article is &lt;a href=&#34;https://github.com/srinathh/build-react-container-component&#34;&gt;available on Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+
+&lt;p&gt;I learned many of these techniques while trying to wrap
+&lt;a href=&#34;https://github.com/material-components/material-components-web&#34;&gt;Material Components for Web&lt;/a&gt;
+into re-usable React components. The project is called
+&lt;a href=&#34;https://github.com/srinathh/reactmdcweb&#34;&gt;reactmdcweb&lt;/a&gt; hosted
+on Github.&lt;/p&gt;
+
+&lt;h2 id=&#34;expected-outcome&#34;&gt;Expected Outcome&lt;/h2&gt;
+
+&lt;p&gt;We will build a container component like the picture below. It
+is a colored box that spans the available width and contains
+children that will have left-aligned text. The parent must specify
+a title which is center aligned. The component will be flexible
+and modular allowing event binding &amp;amp; style overrides by the app
+using the component in ways that differ from the original design.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/build_react_components/final.png&#34; alt=&#34;final expected image&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Prior Familiarity with React&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/facebookincubator/create-react-app&#34;&gt;Create React App&lt;/a&gt; installed on your dev machine&lt;/li&gt;
+&lt;li&gt;Familiarity with &lt;a href=&#34;http://ccoenraets.github.io/es6-tutorial/&#34;&gt;ES6 syntax&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-bootstrap-a-new-react-project&#34;&gt;1. Bootstrap a new React Project&lt;/h3&gt;
+
+&lt;p&gt;We will use the Create React App tool to bootstrap a new React
+Project with all our required libraries &amp;amp; development dependencies
+like BabelJS, Webpack and its loaders etc.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;create-react-app build-react-container-component
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-check-that-the-initial-demo-builds&#34;&gt;2. Check that the initial demo builds&lt;/h3&gt;
+
+&lt;p&gt;Start the development server&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If everything installed properly, you shold see a screen like
+the one below showing the initial demo screen of create react
+app. We will use the phone device browser emulation in Chrome
+for easier reviews and debugging.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/build_react_components/base_cra_screen.png&#34; alt=&#34;Initial create react app demo screen&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;3-create-the-styling-of-our-container&#34;&gt;3. Create the styling of our container&lt;/h3&gt;
+
+&lt;p&gt;We will begin creating the styles for our container component.
+Our container will be a &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; with a firebrick red background
+and white text spanning the full available width with some
+padding. Create the file &lt;code&gt;src/myContainer.css&lt;/code&gt; and add the
+following style to the file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;div.MyContainer {
+  width: &amp;quot;100%&amp;quot;;
+  background-color: firebrick;
+  color: white;
+  padding: 16px;  
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;4-create-a-basic-container-component-using-the-above-style&#34;&gt;4. Create a basic container component using the above style&lt;/h3&gt;
+
+&lt;p&gt;In &lt;code&gt;src/myContainer.js&lt;/code&gt; create the following React container
+component which is basically a &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; on which we apply the
+styles we defined earlier. This container expects a title
+which will be displayed with a &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; tag separated from
+the &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; containing other child components by a
+horizontal ruler &lt;code&gt;&amp;lt;hr&amp;gt;&lt;/code&gt;. Child components are added using
+&lt;code&gt;{this.props.children}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;
+import &#39;./myContainer.css&#39;
+
+export default class MyContainer extends React.Component{
+    render(){
+        return(
+            &amp;lt;div className=&#39;MyContainer&#39;&amp;gt;
+                &amp;lt;h1&amp;gt;{this.props.title}&amp;lt;/h1&amp;gt;
+                &amp;lt;hr /&amp;gt;
+                &amp;lt;div&amp;gt;
+                    {this.props.children}
+                &amp;lt;/div&amp;gt;
+            &amp;lt;/div&amp;gt;
+        )
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;5-let-s-test-our-container-component&#34;&gt;5. Let&amp;rsquo;s test our container component&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s wipe out some of the Create React App boilerplate
+in &lt;code&gt;src/App.js&lt;/code&gt; and test our own component instead. We
+need to first &lt;code&gt;import MyContainer&lt;/code&gt; and use it. We will
+pass a title and add two children - an image &amp;amp; a &lt;em&gt;Lorem
+Ipsum&lt;/em&gt; div.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React, { Component } from &#39;react&#39;;
+import logo from &#39;./logo.svg&#39;;
+import &#39;./App.css&#39;;
+import MyContainer from &#39;./myContainer&#39;
+
+class App extends Component {
+  render() {
+    return (
+      &amp;lt;div className=&amp;quot;App&amp;quot;&amp;gt;
+        &amp;lt;MyContainer title=&amp;quot;Super Container!&amp;quot;&amp;gt;
+            &amp;lt;img style={{width:&amp;quot;200px&amp;quot;}} src={logo} alt=&amp;quot;logo&amp;quot; /&amp;gt;
+            &amp;lt;div&amp;gt;
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua.
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/MyContainer&amp;gt;
+      &amp;lt;/div&amp;gt;
+    );
+  }
+}
+
+export default App;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The outcome should look like the picture below with the red
+card like container &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; taking up the full width available
+but only as much height as required for the children plus
+padding.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/build_react_components/initial_container.png&#34; alt=&#34;Initial red container card&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;6-adding-type-checking-on-props&#34;&gt;6. Adding Type Checking on Props&lt;/h3&gt;
+
+&lt;p&gt;It&amp;rsquo;s good developmental practice to ensure the props we
+want to consume have the type we expect. React provides
+a &lt;a href=&#34;https://facebook.github.io/react/docs/typechecking-with-proptypes.html&#34;&gt;PropTypes&lt;/a&gt;
+mechanism to type check props during development.
+This is stripped out in optimized production builds. Let&amp;rsquo;s
+add type checking for &lt;code&gt;string&lt;/code&gt; for the the &lt;code&gt;title&lt;/code&gt; prop
+in &lt;code&gt;src/myContainer.js&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;
+import &#39;./myContainer.css&#39;
+
+export default class MyContainer extends React.Component{
+    static propTypes = {
+        title: React.PropTypes.string
+    }
+
+    render(){
+        return(
+            &amp;lt;div className=&#39;MyContainer&#39;&amp;gt;
+                &amp;lt;h1&amp;gt;{this.props.title}&amp;lt;/h1&amp;gt;
+                &amp;lt;hr /&amp;gt;
+                &amp;lt;div&amp;gt;
+                    {this.props.children}
+                &amp;lt;/div&amp;gt;
+            &amp;lt;/div&amp;gt;
+        )
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;7-flexibility-allowing-dom-properties-event-binding&#34;&gt;7. Flexibility: Allowing DOM properties &amp;amp; event binding&lt;/h3&gt;
+
+&lt;p&gt;Suppose the programmer consuming our custom component wanted
+to let his users click on the container and capture the event.
+They would try to bind to the onClick event on our container
+like below in &lt;code&gt;src/App.js&lt;/code&gt;. However, the expected console
+message won&amp;rsquo;t show up if we do this.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React, { Component } from &#39;react&#39;;
+import logo from &#39;./logo.svg&#39;;
+import &#39;./App.css&#39;;
+import MyContainer from &#39;./myContainer&#39;
+
+class App extends Component {
+  render() {
+    return (
+      &amp;lt;div className=&amp;quot;App&amp;quot;&amp;gt;
+        &amp;lt;MyContainer 
+            title=&amp;quot;Super Container!&amp;quot; 
+            onClick={e=&amp;gt;console.log(&amp;quot;card clicked&amp;quot;)}
+        &amp;gt;
+            &amp;lt;img style={{width:&amp;quot;200px&amp;quot;}} src={logo} alt=&amp;quot;logo&amp;quot; /&amp;gt;
+            &amp;lt;div&amp;gt;
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua.
+            &amp;lt;/div&amp;gt;
+        &amp;lt;/MyContainer&amp;gt;
+      &amp;lt;/div&amp;gt;
+    );
+  }
+}
+
+export default App;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This fails because the original creator of the container did not
+anticipate that a user will want to bind to the onClick event
+and did not provide for a way to do so. He merely wanted the
+component to be used as a container for other things.&lt;/p&gt;
+
+&lt;p&gt;However, as a container component developer, we can still
+take advantage of ES6 semantics to provide a simple way to
+pass on un-anticipated props and event bindings to the &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
+by the approach below in &lt;code&gt;src/myContainer.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Here, we use the experimental &lt;a href=&#34;https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment&#34;&gt;destructuring assignment&lt;/a&gt;
+syntax to extract the props we are directly using in our
+component (ie. &lt;code&gt;title&lt;/code&gt; and &lt;code&gt;children&lt;/code&gt; and bundle the
+remaining properties and event bindings into &lt;code&gt;{...other}&lt;/code&gt;
+which gets passed on to the root &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; using the &lt;code&gt;...&lt;/code&gt;
+&lt;a href=&#34;https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator&#34;&gt;spread operator&lt;/a&gt;.
+Both the spread operator and the
+destructuring assignment are supported in the Create
+React App setup by default.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;
+import &#39;./myContainer.css&#39;
+
+export default class MyContainer extends React.Component{
+    static propTypes = {
+        title: React.PropTypes.string
+    }
+    render(){
+        const {title, children, ...other} = this.props
+        return(
+            &amp;lt;div className=&#39;MyContainer&#39; {...other}&amp;gt;
+                &amp;lt;h1&amp;gt;{title}&amp;lt;/h1&amp;gt;
+                &amp;lt;hr /&amp;gt;
+                &amp;lt;div&amp;gt;
+                    {children}
+                &amp;lt;/div&amp;gt;
+            &amp;lt;/div&amp;gt;
+        )
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On doing this, you will find that the &lt;code&gt;onClick&lt;/code&gt; event is
+firing and producing logging in the console. This is because
+the &lt;code&gt;onClick&lt;/code&gt; event binding has been passed on to the
+root &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; of the component using the &lt;code&gt;{...other}&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;8-flexibility-allowing-overriding-style-classes&#34;&gt;8: Flexibility: Allowing overriding style classes&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s say the user wants a dark green background instead of
+the firebrick red background. Knowing how CSS3 works, he
+notices that the container component is styled by a style
+class named &amp;lsquo;MyContainer&amp;rsquo;. So he adds a style tied to
+a more specific selector class in his &lt;code&gt;src/App.css&lt;/code&gt; like
+below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;div.MyContainer.greenbg{
+    background-color: seagreen
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;He then uses it in &lt;code&gt;src/App.js&lt;/code&gt; to try to override the
+firebrick red background in &lt;code&gt;MyContainer&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;MyContainer 
+    title=&amp;quot;Super Container!&amp;quot; 
+    onClick={e=&amp;gt;console.log(&amp;quot;card clicked&amp;quot;)}
+    className=&amp;quot;greenbg&amp;quot;
+&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This unfortunately causes us to lose the background
+color entirely due to the overriding class not being
+handled correctly in our component.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/build_react_components/bad_classname.png&#34; alt=&#34;bad classname handing&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To fix this, we need to handle the &lt;code&gt;className&lt;/code&gt; prop in our
+component and append it to any existing classes we are
+already using. We will use the excellent &lt;code&gt;classnames&lt;/code&gt;
+module to do this - so first we need to install it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm install --save classnames
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now here below, we extract the &lt;code&gt;className&lt;/code&gt; passed to us if any
+using the destructuring assignment syntax and then append
+it to the existing &lt;code&gt;MyContainer&lt;/code&gt; class we use. This allows
+the &lt;code&gt;greenbg&lt;/code&gt; class to override only the &lt;code&gt;background-color&lt;/code&gt;
+property and not mess with other settings from &lt;code&gt;MyContainer&lt;/code&gt;
+like padding and text color white.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;
+import &#39;./myContainer.css&#39;
+import classNames from &#39;classnames&#39;
+
+export default class MyContainer extends React.Component{
+    static propTypes = {
+        title: React.PropTypes.string
+    }
+    render(){
+        const {title, children, className, ...other} = this.props
+
+        const classnames = classNames(
+            &#39;MyContainer&#39;,
+            className
+        )
+
+        return(
+            &amp;lt;div className={classnames} {...other}&amp;gt;
+                &amp;lt;h1&amp;gt;{title}&amp;lt;/h1&amp;gt;
+                &amp;lt;hr /&amp;gt;
+                &amp;lt;div&amp;gt;
+                    {children}
+                &amp;lt;/div&amp;gt;
+            &amp;lt;/div&amp;gt;
+        )
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This results in the correct background color being applied.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/build_react_components/correct_classname.png&#34; alt=&#34;className correctly applied&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;9-flexibility-adding-a-class-to-children&#34;&gt;9: Flexibility: Adding a class to children&lt;/h3&gt;
+
+&lt;p&gt;Sometimes, a container class needs to add styles and classes
+to all its children. As a practical example, the &lt;a href=&#34;https://github.com/material-components/material-components-web/tree/master/packages/mdc-card#actions&#34;&gt;Card Actions&lt;/a&gt;
+section in Material Components for Web requires us to add
+a class called &lt;code&gt;mdc-card__action&lt;/code&gt; to all child buttons.&lt;/p&gt;
+
+&lt;p&gt;In our case, we will style all children of our component
+to have their text left aligned. To do this, let&amp;rsquo;s first
+go into &lt;code&gt;src/myContainer.css&lt;/code&gt; and add the following style.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.childStyle{
+    text-align: left
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To apply this style to all the children, we need to first
+iterate through the children. Due to the special nature of
+the &lt;code&gt;children&lt;/code&gt; props, we need to use the &lt;a href=&#34;https://facebook.github.io/react/docs/react-api.html#react.children.map&#34;&gt;React.Children.map&lt;/a&gt;
+function provided by React to iterate through them.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const newChildren = React.Children.map(this.props.children, child=&amp;gt;{
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For each child, we need to first extract any existing classes
+by accessing &lt;code&gt;child.props.className&lt;/code&gt;. We then use our &lt;code&gt;classNames&lt;/code&gt;
+trick to add the our &lt;code&gt;childStyle&lt;/code&gt; class and assign the combined
+classes to a string.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const childclassnames = classNames(
+    child.props.className,
+    &#39;childStyle&#39;
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally we clone the &lt;code&gt;props&lt;/code&gt; of the child replacing the &lt;code&gt;className&lt;/code&gt;
+with our revised class string using &lt;code&gt;Object.assign&lt;/code&gt; and then
+clone the React component itself using the revised props. In
+the component, we use the cloned children instead.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;const newprops = Object.assign({},child.props,{className:childclassnames})
+return React.cloneElement(child, newprops)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is the full revised code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import React from &#39;react&#39;
+import &#39;./myContainer.css&#39;
+import classNames from &#39;classnames&#39;
+
+export default class MyContainer extends React.Component{
+    static propTypes = {
+        title: React.PropTypes.string
+    }
+    render(){
+        const {title, children, className, ...other} = this.props
+
+        const classnames = classNames(
+            &#39;MyContainer&#39;,
+            className
+        )
+
+        const newChildren = React.Children.map(this.props.children, child=&amp;gt;{
+            const childclassnames = classNames(
+                child.props.className,
+                &#39;childStyle&#39;
+            )
+            const newprops = Object.assign({},child.props,{className:childclassnames})
+            return React.cloneElement(child, newprops)
+        })
+
+        return(
+            &amp;lt;div className={classnames} {...other}&amp;gt;
+                &amp;lt;h1&amp;gt;{title}&amp;lt;/h1&amp;gt;
+                &amp;lt;hr /&amp;gt;
+                &amp;lt;div&amp;gt;
+                    {newChildren}
+                &amp;lt;/div&amp;gt;
+            &amp;lt;/div&amp;gt;
+        )
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This should result in children text being left aligned.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/img/build_react_components/final.png&#34; alt=&#34;final perfect image&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I hope this article is useful in outlining some of the best
+practices required for creating flexible and modular React
+components. Please do shout out to &lt;strong&gt;srinathh-at-gmail&lt;/strong&gt; in
+case of any errors, comments or suggestions.&lt;/p&gt;
+
+&lt;h2 id=&#34;sources&#34;&gt;Sources&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://facebook.github.io/react/docs/typechecking-with-proptypes.html&#34;&gt;Typechecking With PropTypes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/JedWatson/classnames&#34;&gt;A simple javascript utility for conditionally joining classNames together
+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stackoverflow.com/questions/39226928/react-adding-class-to-children-components/39549768#39549768&#34;&gt;React - adding class to children components&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amido.com/blog/using-es6-destructuring-in-your-react-components/&#34;&gt;Using ES6 Destructuring in your React Components&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

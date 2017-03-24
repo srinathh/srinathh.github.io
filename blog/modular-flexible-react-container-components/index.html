@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Living at the intersection of Technology, Research, Economics & Art">
+    <link rel="stylesheet" href="/css/pure-min.css">
+    <link rel="stylesheet" href="/css/grids-responsive-min.css">
+    <link rel="stylesheet" href="/css/blog.css">
+    <link rel="stylesheet" href="/css/solarized_light.css">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-54341244-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <title>Building Modular and Flexible React Container Components</title>
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <a href="/"><h1 class="brand-title">Curiosity &amp; the Geek</h1></a>
+        <h2 class="brand-tagline">Life at the intersection of Technology, Insights & Art</h2>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="pure-button" href="/">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="/opensource">Opensource</a>
+                </li>
+                <li class="nav-item">
+                    <a class="pure-button" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                <a class="pure-button" href="/index.xml"><img width="11" height="11" src="/img/common/rss.svg" />&nbsp;Subscribe</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+    
+    <div class="content pure-u-1 pure-u-md-3-4">
+            
+            <div class="posts">
+                
+                <section class="post">
+                    <header class="post-header">
+    <img class="post-avatar" alt="Hariharan Srinath" height="48" width="48" src="/img/profilepics/srinath.jpg">
+    <a href="/blog/modular-flexible-react-container-components/"><h2 class="post-title">Building Modular and Flexible React Container Components</h2></a>
+
+    <p class="post-meta">
+        By Hariharan Srinath 
+        
+            <a class="post-category" href="/tags/react">React</a>
+        
+            <a class="post-category" href="/tags/nodejs">NodeJS</a>
+        
+    </p>
+</header>
+
+                     <div class="socialbuttons" style="float:right">
+    <a href="/index.xml"><img width="20" height="20" src="/img/common/rss.svg" /></a>
+    <div class="g-plus" data-action="share" data-annotation="none"></div>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="srinathh" data-count="none" data-dnt="true">Tweet</a>
+</div>
+
+
+
+                    <div class="post-description">
+                        
+
+<p>This article shows you how to correctly build
+<a href="https://facebook.github.io/react/">React</a> components,
+especially container components in a modular and flexible way
+such that they can be used with customization across apps
+and use cases without having to modify the component code.</p>
+
+<p>While React makes it very simple to create composable
+components, providing flexibility for varying use cases by
+apps consuming the components requires care in consuming only
+properties explicitly supported and passing on the remaining
+ones to the underlying DOM elements. In this article, we will
+explore best practices integrated from multiple sources to
+achieve this goal.</p>
+
+<p>All code for this article is <a href="https://github.com/srinathh/build-react-container-component">available on Github</a></p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>I learned many of these techniques while trying to wrap
+<a href="https://github.com/material-components/material-components-web">Material Components for Web</a>
+into re-usable React components. The project is called
+<a href="https://github.com/srinathh/reactmdcweb">reactmdcweb</a> hosted
+on Github.</p>
+
+<h2 id="expected-outcome">Expected Outcome</h2>
+
+<p>We will build a container component like the picture below. It
+is a colored box that spans the available width and contains
+children that will have left-aligned text. The parent must specify
+a title which is center aligned. The component will be flexible
+and modular allowing event binding &amp; style overrides by the app
+using the component in ways that differ from the original design.</p>
+
+<p><img src="/img/build_react_components/final.png" alt="final expected image" /></p>
+
+<h2 id="pre-requisites">Pre-Requisites</h2>
+
+<ul>
+<li>Prior Familiarity with React</li>
+<li><a href="https://github.com/facebookincubator/create-react-app">Create React App</a> installed on your dev machine</li>
+<li>Familiarity with <a href="http://ccoenraets.github.io/es6-tutorial/">ES6 syntax</a></li>
+</ul>
+
+<h2 id="steps">Steps</h2>
+
+<h3 id="1-bootstrap-a-new-react-project">1. Bootstrap a new React Project</h3>
+
+<p>We will use the Create React App tool to bootstrap a new React
+Project with all our required libraries &amp; development dependencies
+like BabelJS, Webpack and its loaders etc.</p>
+
+<pre><code>create-react-app build-react-container-component
+</code></pre>
+
+<h3 id="2-check-that-the-initial-demo-builds">2. Check that the initial demo builds</h3>
+
+<p>Start the development server</p>
+
+<pre><code>npm start
+</code></pre>
+
+<p>If everything installed properly, you shold see a screen like
+the one below showing the initial demo screen of create react
+app. We will use the phone device browser emulation in Chrome
+for easier reviews and debugging.</p>
+
+<p><img src="/img/build_react_components/base_cra_screen.png" alt="Initial create react app demo screen" /></p>
+
+<h3 id="3-create-the-styling-of-our-container">3. Create the styling of our container</h3>
+
+<p>We will begin creating the styles for our container component.
+Our container will be a <code>&lt;div&gt;</code> with a firebrick red background
+and white text spanning the full available width with some
+padding. Create the file <code>src/myContainer.css</code> and add the
+following style to the file.</p>
+
+<pre><code>div.MyContainer {
+  width: &quot;100%&quot;;
+  background-color: firebrick;
+  color: white;
+  padding: 16px;  
+}
+</code></pre>
+
+<h3 id="4-create-a-basic-container-component-using-the-above-style">4. Create a basic container component using the above style</h3>
+
+<p>In <code>src/myContainer.js</code> create the following React container
+component which is basically a <code>&lt;div&gt;</code> on which we apply the
+styles we defined earlier. This container expects a title
+which will be displayed with a <code>&lt;h1&gt;</code> tag separated from
+the <code>&lt;div&gt;</code> containing other child components by a
+horizontal ruler <code>&lt;hr&gt;</code>. Child components are added using
+<code>{this.props.children}</code>.</p>
+
+<pre><code>import React from 'react'
+import './myContainer.css'
+
+export default class MyContainer extends React.Component{
+    render(){
+        return(
+            &lt;div className='MyContainer'&gt;
+                &lt;h1&gt;{this.props.title}&lt;/h1&gt;
+                &lt;hr /&gt;
+                &lt;div&gt;
+                    {this.props.children}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+
+<h3 id="5-let-s-test-our-container-component">5. Let&rsquo;s test our container component</h3>
+
+<p>Let&rsquo;s wipe out some of the Create React App boilerplate
+in <code>src/App.js</code> and test our own component instead. We
+need to first <code>import MyContainer</code> and use it. We will
+pass a title and add two children - an image &amp; a <em>Lorem
+Ipsum</em> div.</p>
+
+<pre><code>import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import MyContainer from './myContainer'
+
+class App extends Component {
+  render() {
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;MyContainer title=&quot;Super Container!&quot;&gt;
+            &lt;img style={{width:&quot;200px&quot;}} src={logo} alt=&quot;logo&quot; /&gt;
+            &lt;div&gt;
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua.
+            &lt;/div&gt;
+        &lt;/MyContainer&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default App;
+</code></pre>
+
+<p>The outcome should look like the picture below with the red
+card like container <code>&lt;div&gt;</code> taking up the full width available
+but only as much height as required for the children plus
+padding.</p>
+
+<p><img src="/img/build_react_components/initial_container.png" alt="Initial red container card" /></p>
+
+<h3 id="6-adding-type-checking-on-props">6. Adding Type Checking on Props</h3>
+
+<p>It&rsquo;s good developmental practice to ensure the props we
+want to consume have the type we expect. React provides
+a <a href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html">PropTypes</a>
+mechanism to type check props during development.
+This is stripped out in optimized production builds. Let&rsquo;s
+add type checking for <code>string</code> for the the <code>title</code> prop
+in <code>src/myContainer.js</code>.</p>
+
+<pre><code>import React from 'react'
+import './myContainer.css'
+
+export default class MyContainer extends React.Component{
+    static propTypes = {
+        title: React.PropTypes.string
+    }
+
+    render(){
+        return(
+            &lt;div className='MyContainer'&gt;
+                &lt;h1&gt;{this.props.title}&lt;/h1&gt;
+                &lt;hr /&gt;
+                &lt;div&gt;
+                    {this.props.children}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+
+<h3 id="7-flexibility-allowing-dom-properties-event-binding">7. Flexibility: Allowing DOM properties &amp; event binding</h3>
+
+<p>Suppose the programmer consuming our custom component wanted
+to let his users click on the container and capture the event.
+They would try to bind to the onClick event on our container
+like below in <code>src/App.js</code>. However, the expected console
+message won&rsquo;t show up if we do this.</p>
+
+<pre><code>import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import MyContainer from './myContainer'
+
+class App extends Component {
+  render() {
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;MyContainer 
+            title=&quot;Super Container!&quot; 
+            onClick={e=&gt;console.log(&quot;card clicked&quot;)}
+        &gt;
+            &lt;img style={{width:&quot;200px&quot;}} src={logo} alt=&quot;logo&quot; /&gt;
+            &lt;div&gt;
+                Lorem ipsum dolor sit amet, consectetur 
+                adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua.
+            &lt;/div&gt;
+        &lt;/MyContainer&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default App;
+</code></pre>
+
+<p>This fails because the original creator of the container did not
+anticipate that a user will want to bind to the onClick event
+and did not provide for a way to do so. He merely wanted the
+component to be used as a container for other things.</p>
+
+<p>However, as a container component developer, we can still
+take advantage of ES6 semantics to provide a simple way to
+pass on un-anticipated props and event bindings to the <code>&lt;div&gt;</code>
+by the approach below in <code>src/myContainer.js</code></p>
+
+<p>Here, we use the experimental <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">destructuring assignment</a>
+syntax to extract the props we are directly using in our
+component (ie. <code>title</code> and <code>children</code> and bundle the
+remaining properties and event bindings into <code>{...other}</code>
+which gets passed on to the root <code>&lt;div&gt;</code> using the <code>...</code>
+<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator">spread operator</a>.
+Both the spread operator and the
+destructuring assignment are supported in the Create
+React App setup by default.</p>
+
+<pre><code>import React from 'react'
+import './myContainer.css'
+
+export default class MyContainer extends React.Component{
+    static propTypes = {
+        title: React.PropTypes.string
+    }
+    render(){
+        const {title, children, ...other} = this.props
+        return(
+            &lt;div className='MyContainer' {...other}&gt;
+                &lt;h1&gt;{title}&lt;/h1&gt;
+                &lt;hr /&gt;
+                &lt;div&gt;
+                    {children}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+
+<p>On doing this, you will find that the <code>onClick</code> event is
+firing and producing logging in the console. This is because
+the <code>onClick</code> event binding has been passed on to the
+root <code>&lt;div&gt;</code> of the component using the <code>{...other}</code>.</p>
+
+<h3 id="8-flexibility-allowing-overriding-style-classes">8: Flexibility: Allowing overriding style classes</h3>
+
+<p>Let&rsquo;s say the user wants a dark green background instead of
+the firebrick red background. Knowing how CSS3 works, he
+notices that the container component is styled by a style
+class named &lsquo;MyContainer&rsquo;. So he adds a style tied to
+a more specific selector class in his <code>src/App.css</code> like
+below.</p>
+
+<pre><code>div.MyContainer.greenbg{
+    background-color: seagreen
+}
+</code></pre>
+
+<p>He then uses it in <code>src/App.js</code> to try to override the
+firebrick red background in <code>MyContainer</code>.</p>
+
+<pre><code>&lt;MyContainer 
+    title=&quot;Super Container!&quot; 
+    onClick={e=&gt;console.log(&quot;card clicked&quot;)}
+    className=&quot;greenbg&quot;
+&gt;
+</code></pre>
+
+<p>This unfortunately causes us to lose the background
+color entirely due to the overriding class not being
+handled correctly in our component.</p>
+
+<p><img src="/img/build_react_components/bad_classname.png" alt="bad classname handing" /></p>
+
+<p>To fix this, we need to handle the <code>className</code> prop in our
+component and append it to any existing classes we are
+already using. We will use the excellent <code>classnames</code>
+module to do this - so first we need to install it.</p>
+
+<pre><code>npm install --save classnames
+</code></pre>
+
+<p>Now here below, we extract the <code>className</code> passed to us if any
+using the destructuring assignment syntax and then append
+it to the existing <code>MyContainer</code> class we use. This allows
+the <code>greenbg</code> class to override only the <code>background-color</code>
+property and not mess with other settings from <code>MyContainer</code>
+like padding and text color white.</p>
+
+<pre><code>import React from 'react'
+import './myContainer.css'
+import classNames from 'classnames'
+
+export default class MyContainer extends React.Component{
+    static propTypes = {
+        title: React.PropTypes.string
+    }
+    render(){
+        const {title, children, className, ...other} = this.props
+
+        const classnames = classNames(
+            'MyContainer',
+            className
+        )
+
+        return(
+            &lt;div className={classnames} {...other}&gt;
+                &lt;h1&gt;{title}&lt;/h1&gt;
+                &lt;hr /&gt;
+                &lt;div&gt;
+                    {children}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+
+<p>This results in the correct background color being applied.</p>
+
+<p><img src="/img/build_react_components/correct_classname.png" alt="className correctly applied" /></p>
+
+<h3 id="9-flexibility-adding-a-class-to-children">9: Flexibility: Adding a class to children</h3>
+
+<p>Sometimes, a container class needs to add styles and classes
+to all its children. As a practical example, the <a href="https://github.com/material-components/material-components-web/tree/master/packages/mdc-card#actions">Card Actions</a>
+section in Material Components for Web requires us to add
+a class called <code>mdc-card__action</code> to all child buttons.</p>
+
+<p>In our case, we will style all children of our component
+to have their text left aligned. To do this, let&rsquo;s first
+go into <code>src/myContainer.css</code> and add the following style.</p>
+
+<pre><code>.childStyle{
+    text-align: left
+}
+</code></pre>
+
+<p>To apply this style to all the children, we need to first
+iterate through the children. Due to the special nature of
+the <code>children</code> props, we need to use the <a href="https://facebook.github.io/react/docs/react-api.html#react.children.map">React.Children.map</a>
+function provided by React to iterate through them.</p>
+
+<pre><code>const newChildren = React.Children.map(this.props.children, child=&gt;{
+})
+</code></pre>
+
+<p>For each child, we need to first extract any existing classes
+by accessing <code>child.props.className</code>. We then use our <code>classNames</code>
+trick to add the our <code>childStyle</code> class and assign the combined
+classes to a string.</p>
+
+<pre><code>const childclassnames = classNames(
+    child.props.className,
+    'childStyle'
+)
+</code></pre>
+
+<p>Finally we clone the <code>props</code> of the child replacing the <code>className</code>
+with our revised class string using <code>Object.assign</code> and then
+clone the React component itself using the revised props. In
+the component, we use the cloned children instead.</p>
+
+<pre><code>const newprops = Object.assign({},child.props,{className:childclassnames})
+return React.cloneElement(child, newprops)
+</code></pre>
+
+<p>Here is the full revised code.</p>
+
+<pre><code>import React from 'react'
+import './myContainer.css'
+import classNames from 'classnames'
+
+export default class MyContainer extends React.Component{
+    static propTypes = {
+        title: React.PropTypes.string
+    }
+    render(){
+        const {title, children, className, ...other} = this.props
+
+        const classnames = classNames(
+            'MyContainer',
+            className
+        )
+
+        const newChildren = React.Children.map(this.props.children, child=&gt;{
+            const childclassnames = classNames(
+                child.props.className,
+                'childStyle'
+            )
+            const newprops = Object.assign({},child.props,{className:childclassnames})
+            return React.cloneElement(child, newprops)
+        })
+
+        return(
+            &lt;div className={classnames} {...other}&gt;
+                &lt;h1&gt;{title}&lt;/h1&gt;
+                &lt;hr /&gt;
+                &lt;div&gt;
+                    {newChildren}
+                &lt;/div&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+
+<p>This should result in children text being left aligned.</p>
+
+<p><img src="/img/build_react_components/final.png" alt="final perfect image" /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>I hope this article is useful in outlining some of the best
+practices required for creating flexible and modular React
+components. Please do shout out to <strong>srinathh-at-gmail</strong> in
+case of any errors, comments or suggestions.</p>
+
+<h2 id="sources">Sources</h2>
+
+<ul>
+<li><a href="https://facebook.github.io/react/docs/typechecking-with-proptypes.html">Typechecking With PropTypes</a></li>
+<li><a href="https://github.com/JedWatson/classnames">A simple javascript utility for conditionally joining classNames together
+</a></li>
+<li><a href="http://stackoverflow.com/questions/39226928/react-adding-class-to-children-components/39549768#39549768">React - adding class to children components</a></li>
+<li><a href="https://www.amido.com/blog/using-es6-destructuring-in-your-react-components/">Using ES6 Destructuring in your React Components</a></li>
+</ul>
+
+                    </div>
+                </section>
+            </div>
+            
+                <div id="disqus_thread"></div>
+    <script type="text/javascript">
+         
+        var disqus_shortname = 'srinathhgithubio'; 
+
+         
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li><a href="#">&copy; 2014, Hariharan Srinath</a></li>
+            <li><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Attribution-ShareAlike 4.0 International License" style="border-width:0" src="/img/ccbysa.png" /></a></li>
+            <li><a href="http://purecss.io">Pure CSS</a></li>
+            <li><a href="http://hugo.spf13.com">Hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    </div>
+</div>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</body>
+</html>
