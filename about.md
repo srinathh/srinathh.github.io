@@ -1,8 +1,10 @@
 ---
 layout: page
-title: Hariharan Srinath
+title: About 
 permalink: /about/
 ---
+
+## Hariharan Srinath
 I have been driven by curiosity since my childhood and my life took a decidedly geeky turn at the age of eleven 
 when I taught myself computer programming in the BASIC Language from IBM Personal Computer manuals
 in my father's office. Though I have pursued other avenues in higher education and career, coding has
@@ -18,4 +20,7 @@ I lead a team of data science & analytics professionals across Singapore & Guang
 next generation of techniques to optimize marketing & sales effectiveness for [Procter & Gamble](www.pg.com)
 See my [LinkedIn Profile](https://www.linkedin.com/in/hariharan-srinath-12332113) for more details.
 
-![Hariharan Srinath](/assets/images/srinath.jpg)
+I am married to [Deepa](https://www.linkedin.com/in/deepa-n-swamy/) who has co-founded [FlexiBees](https://www.flexibees.com/),
+a startup focused on re-employing women on a career break through part time & remote work opportunities & live in Singapore.
+
+![Srinath and Deepa](/assets/images/people/srinath-and-deepa-small.jpg)

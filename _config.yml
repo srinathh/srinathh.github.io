@@ -17,7 +17,8 @@ title: Curiosity & The Geek
 email: srinathh@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   In this blog, I hope write about my experiences at the intersection of 
-  Technology, Data Science, Economics & Art
+  Technology, Data Science, Economics & Art. This work is licensed under
+  Creative Commons Attribution-ShareAlike 4.0 International License.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  srinathh
