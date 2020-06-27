@@ -25,9 +25,11 @@ github_username:  srinathh
 
 # Build settings
 markdown: kramdown
-theme: minima
 plugins:
   - jekyll-feed
+minima:
+  skin: dark
+
 
 show_excerpts: true
 
