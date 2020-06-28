@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GoAniGiffy: A versatile animated GIF creator"
-tags: programming coding go golang 
+tags: programming golang 
 permalink: /opensource/goanigiffy/
 author: "Hariharan Srinath"
 ---

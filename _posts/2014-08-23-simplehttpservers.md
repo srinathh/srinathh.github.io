@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hello World Web Servers in Python & Go"
-tags: programming coding go python golang
+tags: programming python golang
 permalink: /blog/simplehttpservers/
 author: "Hariharan Srinath"
 ---

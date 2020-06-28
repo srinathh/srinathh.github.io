@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Migrating a blog to Jekyll"
-tags: jekyll blog tips
+tags: jekyll 
 author: "Hariharan Srinath"
 ---
 

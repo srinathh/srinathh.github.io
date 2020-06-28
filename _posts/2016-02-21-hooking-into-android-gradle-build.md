@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hooking into Android Studio's Gradle build process"
-tags: programming android java gradle coding
+tags: programming android
 permalink: /blog/hooking-into-android-gradle-build/
 author: "Hariharan Srinath"
 ---

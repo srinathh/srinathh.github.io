@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building Modular and Flexible React Container Components"
-tags: programming coding react nodejs node
+tags: programming nodejs 
 permalink: /blog/modular-flexible-react-container-components/
 author: "Hariharan Srinath"
 ---

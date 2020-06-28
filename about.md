@@ -1,10 +1,9 @@
 ---
 layout: page
-title: About 
+title: About Srinath
 permalink: /about/
 ---
 
-## Hariharan Srinath
 I have been driven by curiosity since my childhood and my life took a decidedly geeky turn at the age of eleven 
 when I taught myself computer programming in the BASIC Language from IBM Personal Computer manuals
 in my father's office. Though I have pursued other avenues in higher education and career, coding has
@@ -22,5 +21,7 @@ See my [LinkedIn Profile](https://www.linkedin.com/in/hariharan-srinath-12332113
 
 I am married to [Deepa](https://www.linkedin.com/in/deepa-n-swamy/) who has co-founded [FlexiBees](https://www.flexibees.com/),
 a startup focused on re-employing women on a career break through part time & remote work opportunities & live in Singapore.
+
+**Contact**: <a href="mailto:srinathh@gmail.com?subject=Blog">srinathh@gmail.com</a>
 
 ![Srinath and Deepa](/assets/images/people/srinath-and-deepa-small.jpg)

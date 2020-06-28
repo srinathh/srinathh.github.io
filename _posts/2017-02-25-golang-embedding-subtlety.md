@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How type embedding intersects with Pointer and Value method receivers in Go" 
-tags: programming coding golang
+tags: programming golang
 permalink: /blog/golang-embedding-subtlety/
 author: "Hariharan Srinath"
 ---

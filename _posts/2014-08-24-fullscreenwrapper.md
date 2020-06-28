@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "FullScreenWrapper2: Python GUI framework for Android"
-tags: programming coding android python
+tags: programming android python
 permalink: /opensource/fullscreenwrapper/
 author: "Hariharan Srinath"
 ---

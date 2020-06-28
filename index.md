@@ -5,7 +5,7 @@
 layout: home
 ---
 
-In this blog, I hope to write about my experience at the intersection of Technology,
-Data Science, Economics & Art. I have re-started this blog after a long hiatius 
-recently and while most of the articles have been about programming, I hope to 
-broaden the variety of topics.
+I hope to write about my experiences at the intersection of Technology & Art
+in this blog. I have re-started blogging after a long hiatius and while
+most early articles focus on programming, I hope to broaden the variety.
+To see my posts by topic, click on the menu icon.

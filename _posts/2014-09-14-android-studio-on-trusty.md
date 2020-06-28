@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Making Android Studio (or Eclipse ADT) work on 64-bit Ubuntu Saucy 13.10 or Trusty 14.04"
-tags: programming coding android
+tags: programming android
 permalink: /blog/android-studio-on-trusty/
 author: "Hariharan Srinath"
 ---
