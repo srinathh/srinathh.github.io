@@ -18,13 +18,12 @@ email: srinathh@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International License.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://srinathh.github.io" # the base hostname & protocol for your site
+
 github_username:  srinathh
 show_drafts: true
 # Build settings
 markdown: kramdown
-plugins:
-  - jekyll-feed
 
 remote_theme: jekyll/minima
 minima:
@@ -38,6 +37,9 @@ collections:
     output: true
     permalink: tags/:path/
 
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
