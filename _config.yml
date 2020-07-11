@@ -1,0 +1,45 @@
+# Site
+name: "Curiosity & the Geek"
+title: "Curiosity & the Geek"
+description: "Life at the intersection of Technlogy, Analytics & Art"
+logo: 'assets/images/generic/logo.png'
+favicon: 'assets/images/generic/logo.png'
+baseurl: ''
+google_analytics: ''
+include: ["_pages"]
+
+# Authors
+authors:
+  srinath:
+    name: Hariharan Srinath
+    display_name: Srinath
+    avatar: 'assets/images/people/srinath.jpg'
+    email: srinathh@gmail.com
+    web: https://srinathh.github.io/
+    description: "Curiosity driven innovator in analytics, data science & evidence based marketing. Programmer for over 25 years. Multi-instrumentalist."
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+    
+# Pagination 
+paginate: 6
+paginate_path: /page:num/
+    
+# Other
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "disabled"
+
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
