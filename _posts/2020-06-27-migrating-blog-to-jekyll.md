@@ -3,7 +3,6 @@ layout: post
 title: "Migrating a blog to Jekyll"
 categories: [Jekyll]
 author: srinath
-featured: true
 permalink: /2020/06/27/migrating-blog-to-jekyll.html
 image: assets/images/generic/jekyll-logo-dark-solid.png
 ---
