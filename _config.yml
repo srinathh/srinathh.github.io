@@ -5,7 +5,7 @@ description: "Life at the intersection of Technlogy, Analytics & Art"
 logo: 'assets/images/generic/logo.png'
 favicon: 'assets/images/generic/logo.png'
 baseurl: ''
-google_analytics: ''
+google_analytics: G-5FCZC1JS6X
 include: ["_pages"]
 
 # Authors
