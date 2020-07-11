@@ -5,7 +5,6 @@ categories: [Design]
 permalink: /blog/nile-color-theme/
 author: srinath
 image: assets/images/nile-color-theme/nile-photo.jpg
-featured: true
 ---
 
 
