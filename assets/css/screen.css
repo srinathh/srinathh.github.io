@@ -50,8 +50,8 @@ pre {
 
 .site-content {
     min-height: 60vh;
-    padding-top: 7.5rem;
     margin-top: 57px;
+    padding-top: 8rem;
     transition: all 0.4s;
 }
 
@@ -302,6 +302,17 @@ span.post-read-more a:hover {
 
 .mainheading h1.sitetitle {
     font-family: Righteous;
+}
+
+@media only screen and (max-device-width: 700px) {
+
+    .mainheading h1.sitetitle {
+        font-size: 1.7rem;
+    }
+
+    .mainheading p.lead {
+        font-size: 0.75rem;
+    }
 }
 
 .mainheading h1.posttitle {
