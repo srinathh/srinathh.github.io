@@ -1,0 +1,22 @@
+<!-- begin post -->
+{% assign author = site.authors[post.author] %}
+
+<div class="col-lg-4 col-md-6 mb-30px card-group">
+    <div class="card h-100">
+        <div class="card-body">
+            <h2 class="card-title">
+                <a class="text-dark" href="{{ post.link }}">{{ post.title }}</a>
+            </h2>
+            <h4 class="card-text">{{ post.excerpt | strip_html | truncatewords:30 }}</h4>
+        </div>
+        <div class="card-footer bg-white">
+            <div class="wrapfooter">
+                {% for category in post.categories %}
+                    <span class="badge badge-light">{{category}}</span>
+                {% endfor %}
+                <br/><span class="post-date">{{ post.date | date_to_string }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end post -->
