@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A color theme inspired by the beautiful scenary of the Nile riverbank in Egypt"
-categories: [Design]
+categories: [Design, Photography, Art]
 permalink: /blog/nile-color-theme/
 author: srinath
 image: assets/images/nile-color-theme/nile-photo.jpg

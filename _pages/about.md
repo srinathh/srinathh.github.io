@@ -1,29 +1,30 @@
 ---
 layout: page
-title: About Hariharan Srinath
+title: Hariharan Srinath
 author: srinath
 permalink: /about
 image: assets/images/people/srinath-and-deepa-small.jpg
 ---
 
-<img class="featured-image img-fluid" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">
-
-I have been driven by curiosity since my childhood and my life took a decidedly geeky turn at the age of eleven 
-when I taught myself computer programming in the BASIC Language from IBM Personal Computer manuals
-in my father's office. Though I have pursued other avenues in higher education and career, coding has
-been a lifelong interest for me. In recent years with the rise of data science, I have found was to 
-apply these skills at work too.
-
-I have degrees in Metallurgical Engineering ([Indian Institute of Technology, Benaras 
-Hindu University, Varanasi](http://iitbhu.ac.in/)) and Management ([Indian Institute of Management, Ahmedabad]( http://www.iimahd.ernet.in/)).
-I contributed to a [paper on steel-making](http://www.saimm.co.za/Conferences/MoltenSlags2004/077-Ekengard.pdf)
-during my undergraduate internship in the Royal Institute of Technology, Stockholm.
-
-I lead a team of data science & analytics professionals across Singapore & Guangzhou to develop the
-next generation of techniques to optimize marketing & sales effectiveness for [Procter & Gamble](www.pg.com)
-See my [LinkedIn Profile](https://www.linkedin.com/in/hariharan-srinath-12332113) for more details.
-
-I am married to [Deepa](https://www.linkedin.com/in/deepa-n-swamy/) who has co-founded [FlexiBees](https://www.flexibees.com/),
-a startup focused on re-employing women on a career break through part time & remote work opportunities & live in Singapore.
-
 <a target="_blank" href="mailto:srinathh@gmail.com" class="btn follow">E-mail</a>
+
+I lead a team of data science & analyics professionals in Procter & Gamble
+across Singapore & Guangzhou to develop the next generation of techniques to improve
+marketing & sales effectiveness. Evidence based marketing and causal inference are
+my long time professional areas of interest.
+
+In terms of technology, I started early teaching myself computer programming in BASIC
+from the IBM PC manuals in my father's office at the age of eleven. Though I have never
+professionally worked as a programmer beyond my data science work, coding has been
+my lifelong passion for over quarter of a century. I have contributed to a few open source
+projects including the Go programming language.
+
+In the field of Arts, I am a hobbyist musician and multi-instrumentalist having learned guitars,
+keyboards and the indian percussion instrument called Tabla. I have interests in Photography & Design.
+
+I am married to [Deepa](https://www.linkedin.com/in/deepa-n-swamy/), co-founder of 
+[FlexiBees](https://www.flexibees.com/), a startup focused on re-employing women on a
+career break through part time & remote work opportunities.
+
+
+<img class="featured-image img-fluid" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">
