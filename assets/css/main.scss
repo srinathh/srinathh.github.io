@@ -8,3 +8,29 @@
 	display:inline;
 }
 
+
+#mainnav {
+    background-image: url("/assets/images/generic/header-wide.jpg");
+    background-size: cover;
+
+    .lead {
+        font-weight: 600;
+    }
+
+    .nav-link{
+        font-weight: 900;
+    }
+
+    @media only screen and (max-device-width: 600px) {
+
+        h1.sitetitle {
+            font-size: 1.7rem;
+        }
+
+        p.lead {
+            font-size: 0.7rem;
+        }
+
+        background-image: url("/assets/images/generic/header-portrait.jpg");
+    }
+}

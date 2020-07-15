@@ -311,16 +311,6 @@ span.post-read-more a:hover {
     font-family: Righteous;
 }
 
-@media only screen and (max-device-width: 700px) {
-
-    .mainheading h1.sitetitle {
-        font-size: 1.7rem;
-    }
-
-    .mainheading p.lead {
-        font-size: 0.75rem;
-    }
-}
 
 .mainheading h1.posttitle {
     font-weight: 700;
