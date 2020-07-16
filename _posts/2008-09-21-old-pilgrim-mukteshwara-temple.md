@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Pilgrim Taking a dip in Mukteshwara Temple
-categories: [Photography, Art]
+categories: [Photography]
 author: srinath
 featured: false
 image: assets/images/mukteshwara-temple/bhubaneshwar-mukteshwar-temple-with-a-pilgrim-taking-bath.jpg
