@@ -7,27 +7,27 @@ featured: false
 image: assets/images/a-fire-in-the-sky/a-fire-in-the-sky.jpg
 ---
 
-One cloudy summer evening looking east from my window at sunset I noticed a fire in the sky
-glowing brilliantly and creating an unreal atmosphere. This clearly wasn't
-the sun hiding behind a cloud as I was looking east and the sun was setting in the
-west. Checking the photo timestamp against an 
-[ephemeris](https://www.timeanddate.com/sun/singapore/singapore?month=5&year=2020)
-I later discovered the sun had actually about five minutes earlier.
+One cloudy summer evening looking east I noticed an brilliant
+fire in the sky. This clearly wasn't the sun hiding behind a cloud
+because I was looking east while the sun was setting in the west.
+Checking [later](https://www.timeanddate.com/sun/singapore/singapore?month=5&year=2020),
+I discovered the sun had actually set five minutes before this photo
+was taken.
 
-This effect interestingly is caused by the curvature of the earth. While the sun may have 
-already set beneath the jorizon and no longer be visible to an observer on the ground,
-clouds high in the sky may still catch rays of the sun since the horizon is further 
-away the higher up you are. This effect combined with a lucky shape & orientation of the
-cloud then was the explanation for the fire in the sky.
+This is caused by the curvature of the earth. While the sun may have 
+already set below the horizon for someone standing on the ground, clouds
+high in the sky may still catch rays of the sun since the horizon is further 
+away the higher up you go. 
 
-![Concept](/assets/images/a-fire-in-the-sky/concept.jpg)
+![Concept](/assets/images/a-fire-in-the-sky/concept.png)
 
-The same effect can be observed for a fleeting minute or so in sky-scrapers where the 
-sun sets earlier for the lower floors than the upper floors. You can see this effect
-in this photo of a Toronto Sunset
+You can observe the same effect for a fleeting minute in skyscrapers. The sun
+sets earlier for lower floors than upper floors. If skies are clear and you're
+looking at just the right moment, you may be able to see a wave of darkness racing
+up the skyscraper. You can see the effect in this photo of a Toronto sunset
 ![Toronto Sunset](/assets/images/a-fire-in-the-sky/toronto-sunset-skyscraper.jpg)
 
-Image Credits:
+#### Image Credits:
 - Photo of Toronto by [LinedPhoto](https://unsplash.com/@linedphoto)
   on [Unsplash](https://unsplash.com/s/photos/skyscraper-sunset)
 - Illustration of cloud by [Clker-Free-Vector-Images](https://pixabay.com/users/Clker-Free-Vector-Images-3736/)
