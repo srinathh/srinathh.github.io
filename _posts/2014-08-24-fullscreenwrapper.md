@@ -25,8 +25,9 @@ Full documentation & library download is available at the [Python-for-Android Wi
 
 Framework Overview
 ------------------
-![FullScreenWrapper2 framework design](/assets/images/fullscreenwrapper2/fullscreenwrapper2.png)
+![FullScreenWrapper2 framework design](/assets/images/fullscreenwrapper2/fullscreenwrapper2.png){:class="zoompic"}
+
 
 Screenshots
 -----------
-![FullScreenWrapper2 Demo Screenshots](/assets/images/fullscreenwrapper2/fullscreenwrapper2_demo_screenshots.png)
+![FullScreenWrapper2 Demo Screenshots](/assets/images/fullscreenwrapper2/fullscreenwrapper2_demo_screenshots.png){:class="zoompic"}

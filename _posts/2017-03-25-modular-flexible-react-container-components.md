@@ -41,8 +41,7 @@ a title which is center aligned. The component will be flexible
 and modular allowing event binding & style overrides by the app
 using the component in ways that differ from the original design.
 
-![final expected image](/assets/images/modular-react-components/final.png)
-
+![final expected image](/assets/images/modular-react-components/final.png){:class="zoompic"}
 
 Pre-Requisites
 --------------
@@ -72,7 +71,7 @@ the one below showing the initial demo screen of create react
 app. We will use the phone device browser emulation in Chrome
 for easier reviews and debugging. 
 
-![Initial create react app demo screen](/assets/images/modular-react-components/base_cra_screen.png)
+![Initial create react app demo screen](/assets/images/modular-react-components/base_cra_screen.png){:class="zoompic"}
 
 ### 3. Create the styling of our container
 We will begin creating the styles for our container component.
@@ -155,7 +154,7 @@ card like container `<div>` taking up the full width available
 but only as much height as required for the children plus
 padding.
 
-![Initial red container card](/assets/images/modular-react-components/initial_container.png)
+![Initial red container card](/assets/images/modular-react-components/initial_container.png){:class="zoompic"}
 
 ### 6. Adding Type Checking on Props
 It's good developmental practice to ensure the props we 
@@ -300,7 +299,7 @@ This unfortunately causes us to lose the background
 color entirely due to the overriding class not being
 handled correctly in our component.
 
-![bad classname handing](/assets/images/modular-react-components/bad_classname.png)
+![bad classname handing](/assets/images/modular-react-components/bad_classname.png){:class="zoompic"}
 
 To fix this, we need to handle the `className` prop in our
 component and append it to any existing classes we are 
@@ -350,7 +349,7 @@ export default class MyContainer extends React.Component{
 
 This results in the correct background color being applied.
 
-![className correctly applied](/assets/images/modular-react-components/correct_classname.png)
+![className correctly applied](/assets/images/modular-react-components/correct_classname.png){:class="zoompic"}
 
 
 ### 9: Flexibility: Adding a class to children
@@ -444,7 +443,7 @@ export default class MyContainer extends React.Component{
 
 This should result in children text being left aligned.
 
-![final perfect image](/assets/images/modular-react-components/final.png)
+![final perfect image](/assets/images/modular-react-components/final.png){:class="zoompic"}
 
 Conclusion
 ----------

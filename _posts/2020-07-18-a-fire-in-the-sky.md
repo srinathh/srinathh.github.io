@@ -19,13 +19,14 @@ already set below the horizon for someone standing on the ground, clouds
 high in the sky may still catch rays of the sun since the horizon is further 
 away the higher up you go. 
 
-![Concept](/assets/images/a-fire-in-the-sky/concept.png)
+![Concept](/assets/images/a-fire-in-the-sky/concept.png){:class="zoompic"}
 
 You can observe the same effect for a fleeting minute in skyscrapers. The sun
 sets earlier for lower floors than upper floors. If skies are clear and you're
 looking at just the right moment, you may be able to see a wave of darkness racing
-up the skyscraper. You can see the effect in this photo of a Toronto sunset
-![Toronto Sunset](/assets/images/a-fire-in-the-sky/toronto-sunset-skyscraper.jpg)
+up the skyscraper. You can see the effect in this photo of a Toronto sunset.
+
+![Toronto Sunset](/assets/images/a-fire-in-the-sky/toronto-sunset-skyscraper.jpg){:class="zoompic"}
 
 #### Image Credits:
 - Photo of Toronto by [LinedPhoto](https://unsplash.com/@linedphoto)

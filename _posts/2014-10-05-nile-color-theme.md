@@ -16,6 +16,6 @@ the river in the middle of the desert under the largely cloudless blue sky.  Aft
 recently reminiscenced about our trip, I tried to convert our memories of colors into the color
 theme above. 
 
-![Nile color theme](/assets/images/nile-color-theme/nile-color-theme.svg)
+![Nile color theme](/assets/images/nile-color-theme/nile-color-theme.svg){:class="zoompic"}
 
 
