@@ -1,5 +1,8 @@
 jQuery(document).ready(function($){
 
+    $( ".zoompic" ).bind( "click", function() {
+        $.fancybox.open({ src  : this.src } );
+    });
 
 	$(window).scroll(function () {
         if ($(this).scrollTop() > 50) {
