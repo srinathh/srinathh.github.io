@@ -4,13 +4,14 @@ layout: default
 permalink: "/categories.html"
 ---
 <h3>Posts organized by Topic</h3>
-<h4>
-{% for category in site.categories %}
+{% assign sortedcategories = site.categories | sort %}
+<h5>
+{% for category in sortedcategories %}
     <a href="{{ site.baseurl }}/categories#{{ category[0] | replace: " ","-" }}">
         <span class="badge badge-info">{{category[0]}}</span>
     </a>
 {% endfor %}
-</h4>
+</h5>
 
 <div class="row listrecent">
 {% for category in site.categories %}
