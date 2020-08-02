@@ -1,10 +1,13 @@
 ---
 layout: post
 title: A Fire in the Sky 
-categories: [Photography, Science]
+tags:
+- Photography
+- Science
 author: srinath
 featured: false
 image: assets/images/a-fire-in-the-sky/a-fire-in-the-sky.jpg
+permalink: /photography/science/2020/07/18/a-fire-in-the-sky.html
 ---
 
 One cloudy summer evening looking east I noticed an brilliant

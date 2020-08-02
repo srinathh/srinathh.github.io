@@ -1,10 +1,13 @@
 ---
 layout: post
 title: Riding the Rann
-categories: [Photography]
+tags: 
+- Photography
+- Landscapes
 author: srinath
 featured: false
 image: assets/images/oldblog/rann-bikers-in-the-rann.jpg
+permalink: /photography/2020/07/17/riding-the-rann.html
 ---
 A really interesting experience from my college days at IIM Ahmedabad
 was a bike trip to the [Little Rann of Kutch](https://en.wikipedia.org/wiki/Little_Rann_of_Kutch).

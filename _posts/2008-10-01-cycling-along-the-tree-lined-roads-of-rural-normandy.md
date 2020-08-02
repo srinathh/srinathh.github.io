@@ -1,10 +1,13 @@
 ---
 layout: post
 title: Cycling along the tree lined roads of rural Normandy
-categories: [Photography, Landscapes]
+tags:
+- Photography
+- Landscapes
 author: srinath
 featured: false
 image: assets/images/oldblog/normandy-moi-on-a-cycle.jpg
+permalink: /photography/2008/10/01/cycling-along-the-tree-lined-roads-of-rural-normandy.html
 ---
 I took this pic of my friend Moi on a cycling trip in Normandy. I'm quite proud of
 the composition in this pic :-)  The road narrows into the distance in the centre;

@@ -1,10 +1,13 @@
 ---
 layout: post
 title: Millet fields in Laddakh
-categories: [Photography, Landscapes]
+tags:
+- Landscapes
+- Photography
 author: srinath
 featured: false
 image: assets/images/oldblog/laddakh-millet-fields.jpg
+permalink: /photography/2008/09/11/millet-fields-in-laddakh.html
 ---
 I came across many millet fields while trekking in Laddakh. Millet is the chief grain crop 
 of Laddakhis. They cultivate it in the summer, irrigating their fields with meltwater from

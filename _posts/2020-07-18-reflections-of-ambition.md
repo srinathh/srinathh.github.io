@@ -1,10 +1,13 @@
 ---
 layout: post
 title: Reflections of Ambition
-categories: [Photography]
+tags: 
+- Photography
+- Cityscapes
 author: srinath
 featured: false
 image: assets/images/new-photoblog/reaching-for-the-skies.jpg
+permalink: /photography/2020/07/18/reflections-of-ambition.html
 ---
 
 The skyscrapers of Singapore's Central Business District reveal the

@@ -1,7 +1,10 @@
 ---
 layout: post
 title: "Hello World Web Servers in Python & Go"
-categories: [Programming, Python, Go]
+tags:
+- Programming
+- Python
+- Go
 permalink: /blog/simplehttpservers/
 author: srinath
 image: assets/images/generic/Go-Logo_Blue.png

@@ -1,10 +1,13 @@
 ---
 layout: post
 title: "The lovely waterways of Brugge"
-categories: [Photography, Cityscapes]
+tags:
+- Photography
+- Cityscapes
 author: srinath
 featured: false
 image: assets/images/lovely-waterways-of-brugge/brugge-a-quiet-canal-in-the-evening.jpg
+permalink: /photography/2008/09/27/lovely-waterways-of-brugge.html
 ---
 
 Brugge in Belgium is one of the loveliest towns I have visited. It’s definitely on my “must visit again” list.

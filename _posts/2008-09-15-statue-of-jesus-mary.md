@@ -1,10 +1,13 @@
 ---
 layout: post
 title: Statue of Jesus and Mary overlooking Chateau D'lf 
-categories: [Photography, Religion]
+tags:
+- Photography
+- Religion
 author: srinath
 featured: false
 image: assets/images/oldblog/marseilles-mary-and-jesus-statue-at-cathedral.jpg
+permalink: /photography/2008/09/15/statue-of-jesus-mary.html
 ---
 I saw this expressive stature of Mary and Jesus at Notre Dame de la Garde in
 Marseilles. This church is atop a hill overlooking the harbor and is 

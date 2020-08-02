@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "Building Modular and Flexible React Container Components"
-categories: [Programming, NodeJS] 
+tags: 
+- Programming
+- NodeJS
 permalink: /blog/modular-flexible-react-container-components/
 author: srinath
 image: assets/images/modular-react-components/final.png

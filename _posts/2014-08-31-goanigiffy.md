@@ -1,7 +1,10 @@
 ---
 layout: post
 title: "GoAniGiffy: A versatile animated GIF creator"
-categories: [Programming, Go, Video] 
+tags:
+- Programming
+- Go
+- Video
 permalink: /opensource/goanigiffy/
 author: srinath
 featured: true

@@ -1,7 +1,10 @@
 ---
 layout: post
 title: "FullScreenWrapper2: Python GUI framework for Android"
-categories: [Programming, Android, Python]
+tags:
+- Programming
+- Android
+- Python
 permalink: /opensource/fullscreenwrapper/
 author: srinath
 image: assets/images/fullscreenwrapper2/fullscreenwrapper2_demo_screenshots.png

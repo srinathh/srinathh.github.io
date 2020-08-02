@@ -5,19 +5,20 @@ permalink: "/tags.html"
 ---
 <h3>Posts organized by Topic</h3>
 {% assign sortedcategories = site.tags | sort %}
-<h5>
+<div>
 {% for category in sortedcategories %}
     <a href="{{ site.baseurl }}/tags#{{ category[0] | replace: " ","-" }}">
-        <span class="badge badge-info">{{category[0]}}</span>
+        <span class="badge badge-light">{{category[0]}}</span>
     </a>
 {% endfor %}
-</h5>
+</div>
 
-<div class="row listrecent">
 {% for category in site.tags %}
+<section class="featured-posts">
 <div class="section-title col-md-12 mt-4">
 <h3 id="{{ category[0] | replace: " ","-" }}"><span class="text-capitalize">{{ category[0] }}</span></h3>
 </div>
+<div class="row listrecent">
 {% assign pages_list = category[1] %}
 {% for post in pages_list %}
 {% if post.title != null %}
@@ -28,5 +29,6 @@ permalink: "/tags.html"
 {% endfor %}
 {% assign pages_list = nil %}
 {% assign group = nil %}
-{% endfor %}
 </div>
+</section>
+{% endfor %}

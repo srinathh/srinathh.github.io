@@ -1,10 +1,13 @@
 ---
 layout: post
 title: Pilgrim Taking a dip in Mukteshwara Temple
-categories: [Photography, Religion]
+tags:
+- Photography
+- Religion
 author: srinath
 featured: false
 image: assets/images/mukteshwara-temple/bhubaneshwar-mukteshwar-temple-with-a-pilgrim-taking-bath.jpg
+permalink: /photography/2008/09/21/old-pilgrim-mukteshwara-temple.html
 ---
 
 Mukteshwara temple in Bhubhaneshwar is an exquisitely carved and pictueresque small

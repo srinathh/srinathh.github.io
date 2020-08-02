@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Using FuseCompress to compress folders in Ubuntu"
-categories: [Linux] 
+tags: 
+- Linux
 permalink: /blog/fusecompress-on-ubuntu/
 author: "Hariharan Srinath"
 image: assets/images/generic/linux.svg

@@ -1,10 +1,13 @@
 ---
 layout: post
 title: Lost in Music
-categories: [Photography]
+tags:
+- Photography
+- Art
 author: srinath
 featured: false
 image: assets/images/oldblog/iima-music-club-room-srinath-with-the-base-guitar.jpg
+permalink: /photography/2020/07/17/lost-in-music.html
 ---
 
 This brilliant composition by my friend

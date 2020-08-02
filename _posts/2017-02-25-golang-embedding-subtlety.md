@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "How type embedding intersects with Pointer and Value method receivers in Go" 
-categories: [Programming, Go]
+tags:
+- Programming
+- Go
 permalink: /blog/golang-embedding-subtlety/
 author: srinath
 image: assets/images/generic/Go-Logo_Blue.png  

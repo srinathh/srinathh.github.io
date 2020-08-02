@@ -1,7 +1,9 @@
 ---
 layout: post
 title: "Hooking into Android Studio's Gradle build process"
-categories: [Programming, Android]
+tags: 
+- Programming
+- Android
 permalink: /blog/hooking-into-android-gradle-build/
 author: srinath
 image: assets/images/generic/gradle-dark-green-primary.png

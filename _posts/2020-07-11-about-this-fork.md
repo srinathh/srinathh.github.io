@@ -2,8 +2,10 @@
 layout: post
 title:  "Switching to a Modern Blog Theme"
 author: srinath
-categories: [ Jekyll ]
+tags: 
+- Jekyll
 image: assets/images/switching-themes/mediumish-jekyll-template.png
+permalink: /jekyll/2020/07/11/about-this-fork.html
 ---
 
 I recently switched my blog's theme from [minima](https://github.com/jekyll/minima) to
