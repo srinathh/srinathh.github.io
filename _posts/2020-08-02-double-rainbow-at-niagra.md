@@ -3,7 +3,7 @@ layout: post
 title: Double Rainbow at the Niagra Falls
 categories: [Photography, Nature]
 author: srinath
-featured: false
+featured: true
 image: assets/images/new-photoblog/double-rainbow-at-niagra.jpg
 ---
 

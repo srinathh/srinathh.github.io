@@ -3,7 +3,7 @@ layout: post
 title: "The lovely waterways of Brugge"
 categories: [Photography, Cityscapes]
 author: srinath
-featured: true
+featured: false
 image: assets/images/lovely-waterways-of-brugge/brugge-a-quiet-canal-in-the-evening.jpg
 ---
 
