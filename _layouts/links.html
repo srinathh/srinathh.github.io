@@ -14,14 +14,14 @@ layout: default
 {% endfor %}
 
 <h3>Uselful web page links</h3>
-<h5>
+<div>
 {% assign linkscategories = linkscategories | sort %}
 {% for category in linkscategories %}
     <a href="{{ site.baseurl }}/links#{{ category | replace: " ","-" }}">
-        <span class="badge badge-info">{{category}}</span>
+        <span class="badge badge-light">{{category}}</span>
     </a>
 {% endfor %}
-</h5>
+</div>
 
 <div class="row listrecent">
 {% for category in linkscategories %}
