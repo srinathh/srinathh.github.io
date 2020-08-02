@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Millet fields in Laddakh
-categories: [Photography]
+categories: [Photography, Landscapes]
 author: srinath
 featured: false
 image: assets/images/oldblog/laddakh-millet-fields.jpg

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cycling along the tree lined roads of rural Normandy
-categories: [Photography]
+categories: [Photography, Landscapes]
 author: srinath
 featured: false
 image: assets/images/oldblog/normandy-moi-on-a-cycle.jpg

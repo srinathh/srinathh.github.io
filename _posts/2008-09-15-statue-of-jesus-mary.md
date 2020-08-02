@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Statue of Jesus and Mary overlooking Chateau D'lf 
-categories: [Photography]
+categories: [Photography, Religion]
 author: srinath
 featured: false
 image: assets/images/oldblog/marseilles-mary-and-jesus-statue-at-cathedral.jpg
