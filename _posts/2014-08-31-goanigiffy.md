@@ -7,7 +7,7 @@ tags:
 - Video
 permalink: /opensource/goanigiffy/
 author: srinath
-featured: true
+featured: false
 image: assets/images/ardgrafix6100/ardgrafix6100-video.gif
 ---
 GoAniGiffy is a small utility written in the Go Programming language 
