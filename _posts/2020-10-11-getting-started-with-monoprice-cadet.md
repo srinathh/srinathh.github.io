@@ -5,7 +5,7 @@ tags:
 - 3D Printing
 - Design
 author: srinath
-featured: true
+featured: false
 image: assets/images/3dprinter/monoprice_cadet.jpg
 ---
 
