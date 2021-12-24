@@ -5,7 +5,7 @@ tags:
 - Photography
 - Landscapes
 author: srinath
-featured: true
+featured: false
 image: assets/images/new-photoblog/double-rainbow-at-niagra.jpg
 ---
 
